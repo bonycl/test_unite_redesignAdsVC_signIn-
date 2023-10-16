@@ -11,6 +11,7 @@
 		5873E3A22ADB190200F51501 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5873E3A12ADB190200F51501 /* SceneDelegate.swift */; };
 		5873E3A92ADB190600F51501 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5873E3A82ADB190600F51501 /* Assets.xcassets */; };
 		5873E3AC2ADB190600F51501 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5873E3AA2ADB190600F51501 /* LaunchScreen.storyboard */; };
+		D80C90A22ADDB1CA00C9873C /* Geologica.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D80C90A12ADDB1CA00C9873C /* Geologica.ttf */; };
 		D84297942ADBDEB7006D6B06 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84297932ADBDEB7006D6B06 /* SideMenuViewController.swift */; };
 		D84297962ADBF79B006D6B06 /* PositionSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84297952ADBF79B006D6B06 /* PositionSelectionViewController.swift */; };
 		D84297992ADC1E65006D6B06 /* Extansions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84297982ADC1E65006D6B06 /* Extansions.swift */; };
@@ -30,6 +31,7 @@
 		5873E3AB2ADB190600F51501 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5873E3AD2ADB190600F51501 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF7A263FFCB875A6E2D63AA6 /* Pods-PetFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetFinder.debug.xcconfig"; path = "Target Support Files/Pods-PetFinder/Pods-PetFinder.debug.xcconfig"; sourceTree = "<group>"; };
+		D80C90A12ADDB1CA00C9873C /* Geologica.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Geologica.ttf; sourceTree = "<group>"; };
 		D84297932ADBDEB7006D6B06 /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		D84297952ADBF79B006D6B06 /* PositionSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionSelectionViewController.swift; sourceTree = "<group>"; };
 		D84297982ADC1E65006D6B06 /* Extansions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extansions.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 		5873E39E2ADB190200F51501 /* PetFinder */ = {
 			isa = PBXGroup;
 			children = (
+				D8EE67E52ADDA52800C3673F /* Fonts */,
 				D84297972ADC1E4F006D6B06 /* Help */,
 				D86EA8852ADBD09400B8D961 /* View */,
 				D86EA8822ADBCA8E00B8D961 /* Del */,
@@ -154,6 +157,14 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		D8EE67E52ADDA52800C3673F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D80C90A12ADDB1CA00C9873C /* Geologica.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -214,6 +225,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D80C90A22ADDB1CA00C9873C /* Geologica.ttf in Resources */,
 				D86EA8842ADBCAE900B8D961 /* Podfile in Resources */,
 				5873E3AC2ADB190600F51501 /* LaunchScreen.storyboard in Resources */,
 				5873E3A92ADB190600F51501 /* Assets.xcassets in Resources */,

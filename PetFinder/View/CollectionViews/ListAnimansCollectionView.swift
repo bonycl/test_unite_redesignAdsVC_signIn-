@@ -25,6 +25,11 @@ class ListAnimansCollectionView: UICollectionView {
     }
     
     private func commonInit() {
+        setup()
+        self.register(AnimalCollectionViewCell.self, forCellWithReuseIdentifier: "AnimalCollectionViewCell")
+    }
+    
+    func setup() {
         self.dataSource = self
         self.delegate = self
         let layout = UICollectionViewFlowLayout()
@@ -33,8 +38,6 @@ class ListAnimansCollectionView: UICollectionView {
         self.showsHorizontalScrollIndicator = false
 
         self.collectionViewLayout = layout
-        
-        self.register(AnimalCollectionViewCell.self, forCellWithReuseIdentifier: "AnimalCollectionViewCell")
     }
 }
 

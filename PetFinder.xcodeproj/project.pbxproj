@@ -139,7 +139,6 @@
 			children = (
 				D84297A02ADC31B9006D6B06 /* CollectionViews */,
 				D842979D2ADC3102006D6B06 /* Cells */,
-				D86EA8892ADBD10E00B8D961 /* Views */,
 				D86EA8862ADBD0A100B8D961 /* Controllers */,
 			);
 			path = View;
@@ -153,13 +152,6 @@
 				D84297952ADBF79B006D6B06 /* PositionSelectionViewController.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		D86EA8892ADBD10E00B8D961 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

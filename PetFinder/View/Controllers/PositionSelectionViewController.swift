@@ -8,79 +8,96 @@
 import UIKit
 import SnapKit
 
-protocol ChildViewControllerDelegate: class {
+protocol ChildViewControllerDelegate: AnyObject {
     func didDismissFormSheet()
 }
 
 final class PositionSelectionViewController: UIViewController {
-    private let searchCity = UITextField()
-    private let acceptCity = UIButton()
-    private let textFieldAndButton = UIStackView()
+    
+    // MARK: - Views
     private let userDefaults = UserDefaults.standard
     private let cityKey = "city"
-    
     weak var delegate: ChildViewControllerDelegate?
-
-
+    
+    private lazy var textField: UITextField = {
+        let textField = UITextField()
+        textField.placeholder = " Введите необходимый город"
+        textField.font = UIFont(name: "Semibold", size: 16.0)
+        textField.leftViewMode = .always
+        textField.layer.cornerRadius = 10
+        textField.layer.borderWidth = 0.1
+        textField.layer.borderColor = UIColor.black.cgColor
+        return textField
+    }()
+    
+    private lazy var button: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 10
+        button.setTitle("Принять ", for: .normal)
+        button.titleLabel?.font = UIFont(name: "Medium", size: 16.0)
+        button.addTarget(self, action: #selector(acceptedCity), for: .touchUpInside)
+        return button
+    }()
+    
+    private lazy var containerView: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 12
+        view.clipsToBounds = true
+        view.backgroundColor = .white
+        return view
+    }()
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
-        createUI()
         self.hideKeyboardWhenTappedAround()
+        setup()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
     }
     
-    func createUI() {
-        createTextFieldAndButtonStackView()
-        
+    private func setup() {
+        setupColor()
+        setupViews()
+        makeConstraints()
     }
     
-    func createTextFieldAndButtonStackView() {
-        textFieldAndButton.axis = .horizontal
-        textFieldAndButton.distribution = .fill
-        textFieldAndButton.spacing = 10
-        textFieldAndButton.addArrangedSubview(createSearchCityTextField())
-        textFieldAndButton.addArrangedSubview(createAcceptCityButton())
-        self.view.addSubview(textFieldAndButton)
-        
-        searchCity.widthAnchor.constraint(equalTo: textFieldAndButton.widthAnchor, multiplier: 0.7).isActive = true
-        
-        textFieldAndButton.snp.makeConstraints { maker in
-            maker.left.right.equalToSuperview().inset(10)
-            maker.top.equalToSuperview().inset(30)
-            maker.height.equalToSuperview().multipliedBy(0.05)
+    private func setupViews() {
+        view.addSubview(containerView)
+        containerView.addSubview(textField)
+        containerView.addSubview(button)
+    }
+    
+    private func setupColor() {
+        view.backgroundColor = .white
+    }
+    
+    private func makeConstraints() {
+        containerView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(8)
+            make.top.equalToSuperview().inset(16)
+            make.height.equalTo(48)
+        }
+        textField.snp.makeConstraints { make in
+            make.top.bottom.leading.equalToSuperview().inset(4)
+            make.trailing.equalToSuperview().inset(78)
+        }
+        button.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview().inset(4)
+            make.leading.equalTo(textField.snp.trailing).offset(4)
         }
     }
-    
-    func createSearchCityTextField() -> UITextField {
-        searchCity.placeholder = "Введите необходимый город"
-        searchCity.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: searchCity.frame.height))
-        searchCity.leftViewMode = .always
-        searchCity.layer.cornerRadius = 10
-        searchCity.layer.borderWidth = 0.1
-        searchCity.layer.borderColor = UIColor.black.cgColor
-        return searchCity
-    }
-    
-    func createAcceptCityButton() -> UIButton {
-        acceptCity.backgroundColor = .systemBlue
-        acceptCity.layer.cornerRadius = 10
-        acceptCity.setTitle("Принять", for: .normal)
-        acceptCity.addTarget(self, action: #selector(acceptedCity), for: .touchUpInside)
-        return acceptCity
-    }
+
+    // MARK: - Methods
     
     @objc func acceptedCity() {
-        guard searchCity.text != "" else {
-            return
-        }
-        userDefaults.setValue(searchCity.text ?? "", forKey: cityKey)
-        searchCity.text = ""
+        guard textField.text != "" else { return }
+        userDefaults.setValue(textField.text ?? "", forKey: cityKey)
+        textField.text = ""
         dismiss(animated: true) {
-                self.delegate?.didDismissFormSheet()
-         }
+            self.delegate?.didDismissFormSheet()
+        }
     }
 }

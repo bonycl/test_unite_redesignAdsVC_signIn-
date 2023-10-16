@@ -8,7 +8,7 @@
 import UIKit
 
 final class MainViewController: UIViewController {
-
+    
     private var sideMenuViewController: SideMenuViewController!
     private var positionSelectionViewController: PositionSelectionViewController!
     private var swipeGestureRecognizer: UISwipeGestureRecognizer?
@@ -16,32 +16,54 @@ final class MainViewController: UIViewController {
     private let cityKey = "city"
     private let animalsCollectionView = ListAnimansCollectionView()
     
+    private lazy var currentPositionView: UIView = { 
+        let currentPositionView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
+        return currentPositionView
+    }()
     
-    private let titleView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
-    private let button = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
-    private let searchBar = UISearchBar()
-    private let additionalSettings = UIButton()
-    private let searchBarAndAdditionalSettings = UIStackView()
+    private lazy var currentPosition: UIButton = {
+        let currentPosition = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
+        return currentPosition
+    }()
+    
+    private lazy var searchBarAndAdditionalSettings: UIStackView = {
+        let searchBarAndAdditionalSettings = UIStackView()
+        searchBarAndAdditionalSettings.axis = .horizontal
+        searchBarAndAdditionalSettings.distribution = .fill
+        return searchBarAndAdditionalSettings
+    }()
+    
+    private lazy var searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        return searchBar
+    }()
+    
+    private lazy var additionalSettings: UIButton = {
+        let additionalSettings = UIButton()
+        return additionalSettings
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
-        self.hideKeyboardWhenTappedAround()
         createNavigationBar()
         checkUserDefaultsCityName()
         createUI()
     }
-    
+
     func createUI() {
-        createSearchBarAndAdditionalSettingsStackView()
+        setup()
+        setupSearchBarAndAdditionalSettingsStackView()
         createAnimalsCollectionView()
     }
     
-    func createSearchBarAndAdditionalSettingsStackView() {
-        searchBarAndAdditionalSettings.axis = .horizontal
-        searchBarAndAdditionalSettings.distribution = .fill
-        
+    func setup() {
+        self.view.backgroundColor = .white
+        self.hideKeyboardWhenTappedAround()
         self.view.addSubview(searchBarAndAdditionalSettings)
+    }
+    
+    func setupSearchBarAndAdditionalSettingsStackView() {
+        
         searchBarAndAdditionalSettings.addArrangedSubview(createSearchBar())
         searchBarAndAdditionalSettings.addArrangedSubview(createAdditionalSettingsButton())
         
@@ -69,9 +91,6 @@ final class MainViewController: UIViewController {
         return additionalSettings
     }
     
-    
-    
-    
     func createAnimalsCollectionView() {
         self.view.addSubview(animalsCollectionView)
         
@@ -91,15 +110,15 @@ final class MainViewController: UIViewController {
     func createNavigationBar() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal"), style: .plain, target: self, action: #selector(menuTapped))
 
-        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
-        button.setTitleColor(.black, for: .normal)
-        button.setImage(UIImage(systemName: "mappin.circle.fill"), for: .normal)
-        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-        titleView.addSubview(button)
-
-        navigationItem.titleView = titleView
+        currentPosition.titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+        currentPosition.setTitleColor(.black, for: .normal)
+        currentPosition.setImage(UIImage(systemName: "mappin.circle.fill"), for: .normal)
+        currentPosition.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        currentPositionView.addSubview(currentPosition)
+        
+        navigationItem.titleView = currentPositionView
     }
-
+    
     @objc func menuTapped () {
         sideMenuViewController = nil
         configureMenuViewController()
@@ -107,13 +126,12 @@ final class MainViewController: UIViewController {
     }
     
     @objc func buttonTapped() {
-       positionSelectionViewController = PositionSelectionViewController()
         let mapPosition = PositionSelectionViewController()
         mapPosition.delegate = self
         mapPosition.modalPresentationStyle = .formSheet
         present(mapPosition, animated: true)
     }
- 
+    
     func configureMenuViewController() {
         if sideMenuViewController == nil {
             guard let navigationBarView = navigationController?.view else { return }
@@ -131,11 +149,10 @@ final class MainViewController: UIViewController {
             sideMenuViewController.view.addGestureRecognizer(swipeGestureRecognizer!)
         }
     }
-
-  
+    
+    
     @objc func handleSwipeGesture(_ gesture: UISwipeGestureRecognizer) {
         guard let menuView = sideMenuViewController?.view else { return }
-        
         UIView.animate(withDuration: 0.2) {
             menuView.frame.origin.x = -menuView.frame.size.width
         }
@@ -160,20 +177,18 @@ final class MainViewController: UIViewController {
                            options: .curveEaseInOut,
                            animations: {
                 self.sideMenuViewController.view.frame.size.width = 0
-                self.sideMenuViewController.viewDidDisappear(true)
             })
         }
     }
     
     func checkUserDefaultsCityName() {
-
         if userDefaults.object(forKey: cityKey) == nil {
             let cityName = "Lida, Belarus"
             userDefaults.setValue(cityName, forKey: cityKey)
-            button.setTitle(cityName, for: .normal)
+            currentPosition.setTitle(cityName, for: .normal)
         } else {
             let cityName = userDefaults.object(forKey: cityKey) ?? ""
-            button.setTitle(cityName as! String, for: .normal)
+            currentPosition.setTitle(cityName as! String, for: .normal)
         }
     }
 }

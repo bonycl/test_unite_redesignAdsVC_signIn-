@@ -8,21 +8,31 @@
 import UIKit
 import SnapKit
 
-class SideMenuViewController: UIViewController {
-    private var titleLabel = UILabel()
-
+final class SideMenuViewController: UIViewController {
+    private lazy var titleLabel: UILabel = {
+        let titleLabel = UILabel()
+        titleLabel.text = "Menu"
+        titleLabel.textColor = .white
+        return titleLabel
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .black
         createUI()
     }
-    
+
     func createUI() {
-        titleLabel.text = "Menu"
-        titleLabel.textColor = .white
+        setup()
+        makeConstraints()
+    }
+    
+    func setup() {
+        self.view.backgroundColor = .black
         self.view.addSubview(titleLabel)
         
+    }
+    
+    func makeConstraints() {
         titleLabel.snp.makeConstraints { maker in
             maker.left.top.equalTo(self.view.safeAreaLayoutGuide)
         }

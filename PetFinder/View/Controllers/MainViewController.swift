@@ -79,6 +79,7 @@ final class MainViewController: UIViewController {
     func createSearchBar() -> UISearchBar {
         searchBar.placeholder = "Начните поиск"
         searchBar.searchBarStyle = .minimal
+        searchBar.searchTextField.font = UIFont(name: "Geologica", size: 15.0)
         
         return searchBar
     }
@@ -113,6 +114,9 @@ final class MainViewController: UIViewController {
         currentPosition.titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
         currentPosition.setTitleColor(.black, for: .normal)
         currentPosition.setImage(UIImage(systemName: "mappin.circle.fill"), for: .normal)
+        currentPosition.titleLabel?.font = UIFont(name: "Geologica", size: 20.0)
+
+        
         currentPosition.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         currentPositionView.addSubview(currentPosition)
         

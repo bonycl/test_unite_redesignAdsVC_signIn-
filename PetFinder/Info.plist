@@ -6,7 +6,12 @@
 	<string></string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Montserrat-SemiBold.ttf</string>
 		<string>Geologica.ttf</string>
+		<string>Montserrat-Bold.ttf</string>
+		<string>Montserrat-Light.ttf</string>
+		<string>Montserrat-Medium.ttf</string>
+		<string>Montserrat-Regular.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

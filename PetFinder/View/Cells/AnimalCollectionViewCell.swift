@@ -12,7 +12,7 @@ final class AnimalCollectionViewCell: UICollectionViewCell {
     
     private lazy var labelText: UILabel = {
         let labelText = UILabel()
-        labelText.font = UIFont(name: "Geologica", size: 15.0)
+        labelText.font = UIFont.montseratt(ofSize: 15, weight: .bold)
         labelText.textAlignment = .center
         labelText.textColor = .white
         return labelText

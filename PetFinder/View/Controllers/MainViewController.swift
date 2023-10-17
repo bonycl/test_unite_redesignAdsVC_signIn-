@@ -79,7 +79,7 @@ final class MainViewController: UIViewController {
     func createSearchBar() -> UISearchBar {
         searchBar.placeholder = "Начните поиск"
         searchBar.searchBarStyle = .minimal
-        searchBar.searchTextField.font = UIFont(name: "Geologica", size: 15.0)
+        searchBar.searchTextField.font = UIFont.montseratt(ofSize: 15, weight: .medium)
         
         return searchBar
     }

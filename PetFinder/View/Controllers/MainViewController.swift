@@ -16,13 +16,48 @@ final class MainViewController: UIViewController {
     private let cityKey = "city"
     private let animalsCollectionView = ListAnimansCollectionView()
     
-    private lazy var currentPositionView: UIView = { 
+    
+    private lazy var lineView: UIView = { 
+        let lineView = UIView()
+        lineView.backgroundColor = .systemGray
+        lineView.layer.opacity = 0.3
+        return lineView
+    }()
+    
+    private lazy var numberOfAds: UILabel = {
+        let numberOfAds = UILabel()
+        numberOfAds.text = "Results: 0"
+        numberOfAds.font = UIFont.montseratt(ofSize: 15, weight: .regular)
+        
+        return numberOfAds
+    }()
+    
+    private lazy var adsLabel: UILabel = {
+        let adsLabel = UILabel()
+        adsLabel.text = "Объявления"
+        adsLabel.font = UIFont.montseratt(ofSize: 25, weight: .bold)
+        return adsLabel
+    }()
+    
+    private lazy var adsLabelAndNumberOfAds: UIStackView = {
+        let adsLabelAndNumberOfAds = UIStackView()
+        adsLabelAndNumberOfAds.axis = .horizontal
+        adsLabelAndNumberOfAds.distribution = .equalSpacing
+        return adsLabelAndNumberOfAds
+    }()
+    
+    private lazy var currentPositionView: UIView = {
         let currentPositionView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
         return currentPositionView
     }()
     
     private lazy var currentPosition: UIButton = {
         let currentPosition = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
+        currentPosition.titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+        currentPosition.setTitleColor(.black, for: .normal)
+        currentPosition.setImage(UIImage(systemName: "mappin.circle.fill"), for: .normal)
+        currentPosition.titleLabel?.font = UIFont.montseratt(ofSize: 20, weight: .medium)
+        currentPosition.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         return currentPosition
     }()
     
@@ -54,12 +89,25 @@ final class MainViewController: UIViewController {
         setup()
         setupSearchBarAndAdditionalSettingsStackView()
         createAnimalsCollectionView()
+        setupAdsLabelAndNumberOfAds()
+        setupLineView()
+    }
+    
+    
+    func setupLineView() {
+        lineView.snp.makeConstraints { maker in
+            maker.top.equalTo(adsLabelAndNumberOfAds.snp.bottom).inset(-10)
+            maker.left.right.equalToSuperview().inset(15)
+            maker.height.equalTo(0.4)
+        }
     }
     
     func setup() {
         self.view.backgroundColor = .white
         self.hideKeyboardWhenTappedAround()
         self.view.addSubview(searchBarAndAdditionalSettings)
+        self.view.addSubview(adsLabelAndNumberOfAds)
+        self.view.addSubview(lineView)
     }
     
     func setupSearchBarAndAdditionalSettingsStackView() {
@@ -73,6 +121,17 @@ final class MainViewController: UIViewController {
             maker.top.equalTo(self.view.safeAreaLayoutGuide).inset(10)
             maker.left.right.equalToSuperview().inset(10)
             maker.height.equalToSuperview().multipliedBy(0.04)
+        }
+    }
+    
+    func setupAdsLabelAndNumberOfAds() {
+        adsLabelAndNumberOfAds.addArrangedSubview(adsLabel)
+        adsLabelAndNumberOfAds.addArrangedSubview(numberOfAds)
+        
+        adsLabelAndNumberOfAds.snp.makeConstraints { maker in
+            maker.top.equalTo(animalsCollectionView.snp.bottom).inset(-25)
+            maker.left.right.equalTo(self.view.safeAreaLayoutGuide).inset(25)
+            maker.height.equalTo(self.view.safeAreaLayoutGuide).multipliedBy(0.05)
         }
     }
     
@@ -110,14 +169,6 @@ final class MainViewController: UIViewController {
     
     func createNavigationBar() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal"), style: .plain, target: self, action: #selector(menuTapped))
-
-        currentPosition.titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
-        currentPosition.setTitleColor(.black, for: .normal)
-        currentPosition.setImage(UIImage(systemName: "mappin.circle.fill"), for: .normal)
-        currentPosition.titleLabel?.font = UIFont(name: "Geologica", size: 20.0)
-
-        
-        currentPosition.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         currentPositionView.addSubview(currentPosition)
         
         navigationItem.titleView = currentPositionView

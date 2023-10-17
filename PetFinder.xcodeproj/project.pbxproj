@@ -11,6 +11,12 @@
 		5873E3A22ADB190200F51501 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5873E3A12ADB190200F51501 /* SceneDelegate.swift */; };
 		5873E3A92ADB190600F51501 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5873E3A82ADB190600F51501 /* Assets.xcassets */; };
 		5873E3AC2ADB190600F51501 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5873E3AA2ADB190600F51501 /* LaunchScreen.storyboard */; };
+		5873E3D82ADEEA7B00F51501 /* FontExtansion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5873E3D72ADEEA7B00F51501 /* FontExtansion.swift */; };
+		5873E3DE2ADEEADA00F51501 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5873E3D92ADEEADA00F51501 /* Montserrat-Medium.ttf */; };
+		5873E3DF2ADEEADA00F51501 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5873E3DA2ADEEADA00F51501 /* Montserrat-Bold.ttf */; };
+		5873E3E02ADEEADA00F51501 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5873E3DB2ADEEADA00F51501 /* Montserrat-Regular.ttf */; };
+		5873E3E12ADEEADA00F51501 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5873E3DC2ADEEADA00F51501 /* Montserrat-Light.ttf */; };
+		5873E3E22ADEEADA00F51501 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5873E3DD2ADEEADA00F51501 /* Montserrat-SemiBold.ttf */; };
 		D80C90A22ADDB1CA00C9873C /* Geologica.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D80C90A12ADDB1CA00C9873C /* Geologica.ttf */; };
 		D84297942ADBDEB7006D6B06 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84297932ADBDEB7006D6B06 /* SideMenuViewController.swift */; };
 		D84297962ADBF79B006D6B06 /* PositionSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84297952ADBF79B006D6B06 /* PositionSelectionViewController.swift */; };
@@ -30,6 +36,12 @@
 		5873E3A82ADB190600F51501 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5873E3AB2ADB190600F51501 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5873E3AD2ADB190600F51501 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5873E3D72ADEEA7B00F51501 /* FontExtansion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtansion.swift; sourceTree = "<group>"; };
+		5873E3D92ADEEADA00F51501 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Medium.ttf"; path = "../../../../../Downloads/Montserrat 2/static/Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		5873E3DA2ADEEADA00F51501 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Bold.ttf"; path = "../../../../../Downloads/Montserrat 2/static/Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		5873E3DB2ADEEADA00F51501 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Regular.ttf"; path = "../../../../../Downloads/Montserrat 2/static/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		5873E3DC2ADEEADA00F51501 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Light.ttf"; path = "../../../../../Downloads/Montserrat 2/static/Montserrat-Light.ttf"; sourceTree = "<group>"; };
+		5873E3DD2ADEEADA00F51501 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-SemiBold.ttf"; path = "../../../../../Downloads/Montserrat 2/static/Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		BF7A263FFCB875A6E2D63AA6 /* Pods-PetFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetFinder.debug.xcconfig"; path = "Target Support Files/Pods-PetFinder/Pods-PetFinder.debug.xcconfig"; sourceTree = "<group>"; };
 		D80C90A12ADDB1CA00C9873C /* Geologica.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Geologica.ttf; sourceTree = "<group>"; };
 		D84297932ADBDEB7006D6B06 /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				D84297982ADC1E65006D6B06 /* Extansions.swift */,
+				5873E3D72ADEEA7B00F51501 /* FontExtansion.swift */,
 			);
 			path = Help;
 			sourceTree = "<group>";
@@ -160,6 +173,11 @@
 		D8EE67E52ADDA52800C3673F /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				5873E3DA2ADEEADA00F51501 /* Montserrat-Bold.ttf */,
+				5873E3DC2ADEEADA00F51501 /* Montserrat-Light.ttf */,
+				5873E3D92ADEEADA00F51501 /* Montserrat-Medium.ttf */,
+				5873E3DB2ADEEADA00F51501 /* Montserrat-Regular.ttf */,
+				5873E3DD2ADEEADA00F51501 /* Montserrat-SemiBold.ttf */,
 				D80C90A12ADDB1CA00C9873C /* Geologica.ttf */,
 			);
 			path = Fonts;
@@ -226,7 +244,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D80C90A22ADDB1CA00C9873C /* Geologica.ttf in Resources */,
+				5873E3DE2ADEEADA00F51501 /* Montserrat-Medium.ttf in Resources */,
+				5873E3E02ADEEADA00F51501 /* Montserrat-Regular.ttf in Resources */,
+				5873E3DF2ADEEADA00F51501 /* Montserrat-Bold.ttf in Resources */,
+				5873E3E12ADEEADA00F51501 /* Montserrat-Light.ttf in Resources */,
 				D86EA8842ADBCAE900B8D961 /* Podfile in Resources */,
+				5873E3E22ADEEADA00F51501 /* Montserrat-SemiBold.ttf in Resources */,
 				5873E3AC2ADB190600F51501 /* LaunchScreen.storyboard in Resources */,
 				5873E3A92ADB190600F51501 /* Assets.xcassets in Resources */,
 			);
@@ -285,6 +308,7 @@
 				D84297992ADC1E65006D6B06 /* Extansions.swift in Sources */,
 				D842979F2ADC312A006D6B06 /* AnimalCollectionViewCell.swift in Sources */,
 				D86EA8882ADBD10300B8D961 /* MainViewController.swift in Sources */,
+				5873E3D82ADEEA7B00F51501 /* FontExtansion.swift in Sources */,
 				D84297A22ADC31E3006D6B06 /* ListAnimansCollectionView.swift in Sources */,
 				5873E3A02ADB190200F51501 /* AppDelegate.swift in Sources */,
 				D84297962ADBF79B006D6B06 /* PositionSelectionViewController.swift in Sources */,

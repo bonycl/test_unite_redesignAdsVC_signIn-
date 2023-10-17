@@ -24,7 +24,7 @@ class ListMenuTableViewCell: UITableViewCell {
     private lazy var labelText: UILabel = {
         let labelText = UILabel()
         labelText.font = UIFont.montseratt(ofSize: 20, weight: .bold)
-        labelText.textAlignment = .center
+        labelText.textAlignment = .left
         labelText.textColor = .white
         return labelText
     }()

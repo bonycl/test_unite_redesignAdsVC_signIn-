@@ -51,7 +51,7 @@ class ListMenuTableViewCell: UITableViewCell {
         
         mainView.snp.makeConstraints { maker in
             maker.left.right.top.equalToSuperview().inset(5)
-            maker.bottom.equalTo(intermediateView.snp.top).inset(-15)
+            maker.bottom.equalTo(intermediateView.snp.top).inset(10)
         }
         
         labelText.snp.makeConstraints { maker in

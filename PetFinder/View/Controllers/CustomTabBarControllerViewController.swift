@@ -27,7 +27,7 @@ class CustomTabBarControllerViewController: UITabBarController {
     
     func configureTabBar() {
         let positionOnX: CGFloat = 10
-        let positionOnY: CGFloat = 20
+        let positionOnY: CGFloat = 14
         let width = tabBar.bounds.width - positionOnX * 2
         let height = tabBar.bounds.height + positionOnY * 2
         

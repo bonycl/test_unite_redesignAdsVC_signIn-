@@ -15,6 +15,7 @@ final class MainViewController: UIViewController {
     private let userDefaults = UserDefaults.standard
     private let cityKey = "city"
     private let animalsCollectionView = ListAnimansCollectionView()
+    private let adsTableView = AdsTableView()
     
     
     private lazy var lineView: UIView = { 
@@ -86,8 +87,8 @@ final class MainViewController: UIViewController {
         createAnimalsCollectionView()
         setupAdsLabelAndNumberOfAds()
         setupLineView()
+        setupAdsTableView()
     }
-    
     
     func setupLineView() {
         lineView.snp.makeConstraints { maker in
@@ -103,6 +104,7 @@ final class MainViewController: UIViewController {
         self.view.addSubview(searchBarAndAdditionalSettings)
         self.view.addSubview(adsLabelAndNumberOfAds)
         self.view.addSubview(lineView)
+        self.view.addSubview(adsTableView)
     }
     
     func setupSearchBarAndAdditionalSettingsStackView() {
@@ -159,11 +161,10 @@ final class MainViewController: UIViewController {
     @objc func handleSwipeEdgeGesture(_ gesture: UIScreenEdgePanGestureRecognizer) {
         sideMenuViewController = nil
         configureMenuViewController()
-        showBulletinViewController(shouldMove: true)
+//        showBulletinViewController(shouldMove: true)
     }
     
     func createCurrentPossitionButton() {
-        
         self.view.addSubview(currentPosition)
         
         currentPosition.snp.makeConstraints { maker in
@@ -172,13 +173,20 @@ final class MainViewController: UIViewController {
             maker.width.equalToSuperview().inset(20)
             maker.centerX.equalToSuperview()
         }
+    }
+    
+    func setupAdsTableView() {
         
+        adsTableView.snp.makeConstraints { maker in
+            maker.top.equalTo(lineView.snp.bottom).inset(-10)
+            maker.left.right.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(5)
+        }
     }
     
     @objc func menuTapped () {
         sideMenuViewController = nil
         configureMenuViewController()
-        showBulletinViewController(shouldMove: true)
+//        showBulletinViewController(shouldMove: true)
     }
     
     @objc func buttonTapped() {
@@ -214,28 +222,28 @@ final class MainViewController: UIViewController {
         }
     }
     
-    func showBulletinViewController(shouldMove: Bool) {
-        if shouldMove {
-            // show
-            UIView.animate(withDuration: 0.5,
-                           delay: 0,
-                           usingSpringWithDamping: 0.8,
-                           initialSpringVelocity: 0,
-                           options: .curveEaseInOut,
-                           animations: {
-                self.sideMenuViewController.view.frame.size.width = 250
-            })
-        } else {
-            UIView.animate(withDuration: 0.5,
-                           delay: 0,
-                           usingSpringWithDamping: 0.8,
-                           initialSpringVelocity: 0,
-                           options: .curveEaseInOut,
-                           animations: {
-                self.sideMenuViewController.view.frame.size.width = 0
-            })
-        }
-    }
+//    func showBulletinViewController(shouldMove: Bool) {
+//        if shouldMove {
+//            // show
+//            UIView.animate(withDuration: 0.5,
+//                           delay: 0,
+//                           usingSpringWithDamping: 0.8,
+//                           initialSpringVelocity: 0,
+//                           options: .curveEaseInOut,
+//                           animations: {
+//                self.sideMenuViewController.view.frame.size.width = 250
+//            })
+//        } else {
+//            UIView.animate(withDuration: 0.5,
+//                           delay: 0,
+//                           usingSpringWithDamping: 0.8,
+//                           initialSpringVelocity: 0,
+//                           options: .curveEaseInOut,
+//                           animations: {
+//                self.sideMenuViewController.view.frame.size.width = 0
+//            })
+//        }
+//    }
     
     func checkUserDefaultsCityName() {
         if userDefaults.object(forKey: cityKey) == nil {

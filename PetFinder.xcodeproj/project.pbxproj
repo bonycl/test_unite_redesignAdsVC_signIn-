@@ -30,6 +30,9 @@
 		D86EADA92AE0469400FB19B6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86EADA82AE0469400FB19B6 /* SettingsViewController.swift */; };
 		D86EADAB2AE0475A00FB19B6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86EADAA2AE0475A00FB19B6 /* ProfileViewController.swift */; };
 		D86EADAD2AE04D1700FB19B6 /* ColorExtansion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86EADAC2AE04D1700FB19B6 /* ColorExtansion.swift */; };
+		D86EADAF2AE3B55E00FB19B6 /* AdsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86EADAE2AE3B55E00FB19B6 /* AdsTableView.swift */; };
+		D86EADB22AE3B59000FB19B6 /* AdsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86EADB12AE3B59000FB19B6 /* AdsModel.swift */; };
+		D86EADB42AE3B69000FB19B6 /* AdsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86EADB32AE3B69000FB19B6 /* AdsTableViewCell.swift */; };
 		E6F0B5A79917F100D937E0D1 /* Pods_PetFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE2ACC640625F2B1CC0E5B2C /* Pods_PetFinder.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +64,9 @@
 		D86EADA82AE0469400FB19B6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		D86EADAA2AE0475A00FB19B6 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D86EADAC2AE04D1700FB19B6 /* ColorExtansion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtansion.swift; sourceTree = "<group>"; };
+		D86EADAE2AE3B55E00FB19B6 /* AdsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsTableView.swift; sourceTree = "<group>"; };
+		D86EADB12AE3B59000FB19B6 /* AdsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsModel.swift; sourceTree = "<group>"; };
+		D86EADB32AE3B69000FB19B6 /* AdsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsTableViewCell.swift; sourceTree = "<group>"; };
 		EE2ACC640625F2B1CC0E5B2C /* Pods_PetFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -115,6 +121,7 @@
 		5873E39E2ADB190200F51501 /* PetFinder */ = {
 			isa = PBXGroup;
 			children = (
+				D86EADB02AE3B57B00FB19B6 /* Model */,
 				D8EE67E52ADDA52800C3673F /* Fonts */,
 				D84297972ADC1E4F006D6B06 /* Help */,
 				D86EA8852ADBD09400B8D961 /* View */,
@@ -130,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				D80C90B62ADF01FF00C9873C /* ListMenuTableView.swift */,
+				D86EADAE2AE3B55E00FB19B6 /* AdsTableView.swift */,
 			);
 			path = TableViews;
 			sourceTree = "<group>";
@@ -149,6 +157,7 @@
 			children = (
 				D842979E2ADC312A006D6B06 /* AnimalCollectionViewCell.swift */,
 				D80C90B92ADF024100C9873C /* ListMenuTableViewCell.swift */,
+				D86EADB32AE3B69000FB19B6 /* AdsTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -192,6 +201,14 @@
 				D86EADAA2AE0475A00FB19B6 /* ProfileViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D86EADB02AE3B57B00FB19B6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D86EADB12AE3B59000FB19B6 /* AdsModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		D8EE67E52ADDA52800C3673F /* Fonts */ = {
@@ -330,16 +347,19 @@
 				D84297992ADC1E65006D6B06 /* Extansions.swift in Sources */,
 				D842979F2ADC312A006D6B06 /* AnimalCollectionViewCell.swift in Sources */,
 				D86EA8882ADBD10300B8D961 /* MainViewController.swift in Sources */,
+				D86EADB42AE3B69000FB19B6 /* AdsTableViewCell.swift in Sources */,
 				D86EADAB2AE0475A00FB19B6 /* ProfileViewController.swift in Sources */,
 				D80C90B72ADF01FF00C9873C /* ListMenuTableView.swift in Sources */,
 				D86EADAD2AE04D1700FB19B6 /* ColorExtansion.swift in Sources */,
 				5873E3D82ADEEA7B00F51501 /* FontExtansion.swift in Sources */,
+				D86EADAF2AE3B55E00FB19B6 /* AdsTableView.swift in Sources */,
 				D84297A22ADC31E3006D6B06 /* ListAnimansCollectionView.swift in Sources */,
 				D86EADA72AE043C900FB19B6 /* CustomTabBarControllerViewController.swift in Sources */,
 				5873E3A02ADB190200F51501 /* AppDelegate.swift in Sources */,
 				D80C90BA2ADF024100C9873C /* ListMenuTableViewCell.swift in Sources */,
 				D86EADA92AE0469400FB19B6 /* SettingsViewController.swift in Sources */,
 				D84297962ADBF79B006D6B06 /* PositionSelectionViewController.swift in Sources */,
+				D86EADB22AE3B59000FB19B6 /* AdsModel.swift in Sources */,
 				5873E3A22ADB190200F51501 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

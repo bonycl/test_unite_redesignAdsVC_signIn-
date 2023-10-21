@@ -46,11 +46,6 @@ final class MainViewController: UIViewController {
         return adsLabelAndNumberOfAds
     }()
     
-    private lazy var currentPositionView: UIView = {
-        let currentPositionView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
-        return currentPositionView
-    }()
-    
     private lazy var currentPosition: UIButton = {
         let currentPosition = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
         currentPosition.titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
@@ -80,7 +75,7 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createNavigationBar()
+        createCurrentPossitionButton()
         checkUserDefaultsCityName()
         createUI()
     }
@@ -118,7 +113,7 @@ final class MainViewController: UIViewController {
         searchBar.widthAnchor.constraint(equalTo: searchBarAndAdditionalSettings.widthAnchor, multiplier: 0.8).isActive = true
         
         searchBarAndAdditionalSettings.snp.makeConstraints { maker in
-            maker.top.equalTo(self.view.safeAreaLayoutGuide).inset(10)
+            maker.top.equalTo(self.view.safeAreaLayoutGuide).inset(50)
             maker.left.right.equalToSuperview().inset(10)
             maker.height.equalToSuperview().multipliedBy(0.04)
         }
@@ -167,11 +162,17 @@ final class MainViewController: UIViewController {
         showBulletinViewController(shouldMove: true)
     }
     
-    func createNavigationBar() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal"), style: .plain, target: self, action: #selector(menuTapped))
-        currentPositionView.addSubview(currentPosition)
+    func createCurrentPossitionButton() {
         
-        navigationItem.titleView = currentPositionView
+        self.view.addSubview(currentPosition)
+        
+        currentPosition.snp.makeConstraints { maker in
+            maker.top.equalToSuperview().inset(50)
+            maker.height.equalTo(self.view.safeAreaLayoutGuide).multipliedBy(0.05)
+            maker.width.equalToSuperview().inset(20)
+            maker.centerX.equalToSuperview()
+        }
+        
     }
     
     @objc func menuTapped () {

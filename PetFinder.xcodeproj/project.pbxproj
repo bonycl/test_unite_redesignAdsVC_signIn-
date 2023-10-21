@@ -26,6 +26,10 @@
 		D84297A22ADC31E3006D6B06 /* ListAnimansCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84297A12ADC31E3006D6B06 /* ListAnimansCollectionView.swift */; };
 		D86EA8842ADBCAE900B8D961 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = D86EA8832ADBCAE900B8D961 /* Podfile */; };
 		D86EA8882ADBD10300B8D961 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86EA8872ADBD10300B8D961 /* MainViewController.swift */; };
+		D86EADA72AE043C900FB19B6 /* CustomTabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86EADA62AE043C900FB19B6 /* CustomTabBarControllerViewController.swift */; };
+		D86EADA92AE0469400FB19B6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86EADA82AE0469400FB19B6 /* SettingsViewController.swift */; };
+		D86EADAB2AE0475A00FB19B6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86EADAA2AE0475A00FB19B6 /* ProfileViewController.swift */; };
+		D86EADAD2AE04D1700FB19B6 /* ColorExtansion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86EADAC2AE04D1700FB19B6 /* ColorExtansion.swift */; };
 		E6F0B5A79917F100D937E0D1 /* Pods_PetFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE2ACC640625F2B1CC0E5B2C /* Pods_PetFinder.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +57,10 @@
 		D84297A12ADC31E3006D6B06 /* ListAnimansCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAnimansCollectionView.swift; sourceTree = "<group>"; };
 		D86EA8832ADBCAE900B8D961 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		D86EA8872ADBD10300B8D961 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		D86EADA62AE043C900FB19B6 /* CustomTabBarControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarControllerViewController.swift; sourceTree = "<group>"; };
+		D86EADA82AE0469400FB19B6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		D86EADAA2AE0475A00FB19B6 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D86EADAC2AE04D1700FB19B6 /* ColorExtansion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtansion.swift; sourceTree = "<group>"; };
 		EE2ACC640625F2B1CC0E5B2C /* Pods_PetFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -131,6 +139,7 @@
 			children = (
 				D84297982ADC1E65006D6B06 /* Extansions.swift */,
 				5873E3D72ADEEA7B00F51501 /* FontExtansion.swift */,
+				D86EADAC2AE04D1700FB19B6 /* ColorExtansion.swift */,
 			);
 			path = Help;
 			sourceTree = "<group>";
@@ -178,6 +187,9 @@
 				D84297932ADBDEB7006D6B06 /* SideMenuViewController.swift */,
 				D86EA8872ADBD10300B8D961 /* MainViewController.swift */,
 				D84297952ADBF79B006D6B06 /* PositionSelectionViewController.swift */,
+				D86EADA62AE043C900FB19B6 /* CustomTabBarControllerViewController.swift */,
+				D86EADA82AE0469400FB19B6 /* SettingsViewController.swift */,
+				D86EADAA2AE0475A00FB19B6 /* ProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -318,11 +330,15 @@
 				D84297992ADC1E65006D6B06 /* Extansions.swift in Sources */,
 				D842979F2ADC312A006D6B06 /* AnimalCollectionViewCell.swift in Sources */,
 				D86EA8882ADBD10300B8D961 /* MainViewController.swift in Sources */,
+				D86EADAB2AE0475A00FB19B6 /* ProfileViewController.swift in Sources */,
 				D80C90B72ADF01FF00C9873C /* ListMenuTableView.swift in Sources */,
+				D86EADAD2AE04D1700FB19B6 /* ColorExtansion.swift in Sources */,
 				5873E3D82ADEEA7B00F51501 /* FontExtansion.swift in Sources */,
 				D84297A22ADC31E3006D6B06 /* ListAnimansCollectionView.swift in Sources */,
+				D86EADA72AE043C900FB19B6 /* CustomTabBarControllerViewController.swift in Sources */,
 				5873E3A02ADB190200F51501 /* AppDelegate.swift in Sources */,
 				D80C90BA2ADF024100C9873C /* ListMenuTableViewCell.swift in Sources */,
+				D86EADA92AE0469400FB19B6 /* SettingsViewController.swift in Sources */,
 				D84297962ADBF79B006D6B06 /* PositionSelectionViewController.swift in Sources */,
 				5873E3A22ADB190200F51501 /* SceneDelegate.swift in Sources */,
 			);

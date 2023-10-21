@@ -27,6 +27,10 @@ final class PositionSelectionViewController: UIViewController {
         textField.layer.cornerRadius = 10
         textField.layer.borderWidth = 0.1
         textField.layer.borderColor = UIColor.black.cgColor
+        let leftPaddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textField.frame.height))
+        textField.leftView = leftPaddingView
+        textField.leftViewMode = .always
+
         return textField
     }()
     

@@ -21,7 +21,7 @@ class AdsTableViewCell: UITableViewCell {
         let imagePet = UIImageView()
         imagePet.clipsToBounds = true
 
-        let image = UIImage(named: "Cat") // Замените "imageName" на имя вашего изображения
+        let image = UIImage(named: "Cat")
         imagePet.image = image
         imagePet.contentMode = .scaleToFill
         imagePet.backgroundColor = .red

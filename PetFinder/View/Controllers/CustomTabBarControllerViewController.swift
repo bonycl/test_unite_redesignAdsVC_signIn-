@@ -37,12 +37,16 @@ class CustomTabBarControllerViewController: UITabBarController {
     
         
         roundLayer.path = bezierPath.cgPath
+        roundLayer.fillColor = UIColor.black.cgColor
+        roundLayer.opacity = 0.5
+        
         tabBar.layer.insertSublayer(roundLayer, at: 0)
         
-        tabBar.itemWidth = width / 5
+        tabBar.itemWidth = width / 1
         tabBar.itemPositioning = .centered
         
         tabBar.tintColor = .tabBarAccent
         tabBar.unselectedItemTintColor = .tabBarItemLight
+        tabBar.backgroundColor = .clear
     }
 }

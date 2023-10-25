@@ -29,6 +29,7 @@ class AdsTableView: UITableView {
     func setup() {
         self.dataSource = self
         self.delegate = self
+        self.separatorStyle = .none
     }
 }
 

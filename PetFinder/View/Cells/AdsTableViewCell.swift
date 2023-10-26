@@ -25,13 +25,13 @@ class AdsTableViewCell: UITableViewCell {
         imagePet.image = image
         imagePet.contentMode = .scaleToFill
         imagePet.backgroundColor = .red
-        imagePet.layer.cornerRadius = 10
+        imagePet.layer.cornerRadius = 20
         return imagePet
     }()
     
     private lazy var mainView: UIView = {
         let mainView = UIView()
-        mainView.layer.cornerRadius = 10
+        mainView.layer.cornerRadius = 20
         mainView.backgroundColor = .red
         return mainView
     }()
@@ -44,7 +44,7 @@ class AdsTableViewCell: UITableViewCell {
     
     private lazy var labelText: UILabel = {
         let labelText = UILabel()
-        labelText.font = UIFont.montseratt(ofSize: 20, weight: .bold)
+        labelText.font = UIFont.sfProText(ofSize: 20, weight: .bold)
         labelText.textColor = .black
         labelText.numberOfLines = 0
         return labelText

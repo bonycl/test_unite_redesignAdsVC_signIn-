@@ -8,14 +8,16 @@
 import UIKit
 
 extension UIFont {
-    enum Montseratt: String {
-        case bold = "Montserrat-Bold"
-        case light = "Montserrat-Light"
-        case medium = "Montserrat-Medium"
-        case regular = "Montserrat-Regular"
-        case semibold = "Montserrat-Semibold"
+    enum SFProText: String {
+        case regular = "SFProText-Regular"
+        case bold = "SFProText-Bold"
+        case semiBold = "SFProText-Semibold"
+        case medium = "SFProText-Medium"
+        case light = "SFProText-Light"
+        // Добавьте другие стили шрифта SF Pro Text, если необходимо
     }
-    class func montseratt(ofSize fontSize: CGFloat, weight: Montseratt) -> UIFont {
-        return UIFont(name: weight.rawValue, size: fontSize) ?? systemFont(ofSize: 16)
+    
+    class func sfProText(ofSize fontSize: CGFloat, weight: SFProText) -> UIFont {
+        return UIFont(name: weight.rawValue, size: fontSize) ?? systemFont(ofSize: fontSize)
     }
 }

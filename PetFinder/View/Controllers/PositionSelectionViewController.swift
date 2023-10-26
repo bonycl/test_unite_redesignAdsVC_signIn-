@@ -22,7 +22,7 @@ final class PositionSelectionViewController: UIViewController {
     private lazy var textField: UITextField = {
         let textField = UITextField()
         textField.placeholder = " Введите необходимый город"
-        textField.font = UIFont.montseratt(ofSize: 16, weight: .semibold)
+        textField.font = UIFont.sfProText(ofSize: 16, weight: .semiBold)
         textField.leftViewMode = .always
         textField.layer.cornerRadius = 10
         textField.layer.borderWidth = 0.1
@@ -39,7 +39,7 @@ final class PositionSelectionViewController: UIViewController {
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 10
         button.setTitle("Принять ", for: .normal)
-        button.titleLabel?.font = UIFont.montseratt(ofSize: 16, weight: .medium)
+        button.titleLabel?.font = UIFont.sfProText(ofSize: 16, weight: .medium)
         button.addTarget(self, action: #selector(acceptedCity), for: .touchUpInside)
         return button
     }()

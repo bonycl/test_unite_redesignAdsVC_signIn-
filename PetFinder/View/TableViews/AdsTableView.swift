@@ -58,7 +58,7 @@ extension AdsTableView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
           let tableViewHeight = tableView.bounds.height
-          let cellHeight = tableViewHeight * 0.4 // 20% от высоты tableView
+          let cellHeight = tableViewHeight * 0.35 // 20% от высоты tableView
           return cellHeight
       }
 

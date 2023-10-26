@@ -16,7 +16,7 @@ final class SideMenuViewController: UIViewController {
         let logOutButton = UIButton()
         logOutButton.backgroundColor = .clear
         logOutButton.setTitle("Выйти из аккаунта", for: .normal)
-        logOutButton.titleLabel?.font = UIFont.montseratt(ofSize: 15, weight: .medium)
+        logOutButton.titleLabel?.font = UIFont.sfProText(ofSize: 15, weight: .medium)
         logOutButton.setTitleColor(.white, for: .normal) // Установите желаемый цвет текста
         logOutButton.layer.cornerRadius = 10
         logOutButton.layer.borderWidth = 0.5
@@ -27,7 +27,7 @@ final class SideMenuViewController: UIViewController {
     private lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.text = "Menu"
-        titleLabel.font = UIFont.montseratt(ofSize: 25, weight: .bold)
+        titleLabel.font = UIFont.sfProText(ofSize: 25, weight: .bold)
         titleLabel.textColor = .white
         return titleLabel
     }()

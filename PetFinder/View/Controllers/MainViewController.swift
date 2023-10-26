@@ -17,18 +17,17 @@ final class MainViewController: UIViewController {
     private let animalsCollectionView = ListAnimansCollectionView()
     private let adsTableView = AdsTableView()
     
-    
-    private lazy var lineView: UIView = { 
-        let lineView = UIView()
-        lineView.backgroundColor = .systemGray
-        lineView.layer.opacity = 0.3
-        return lineView
+    private lazy var rightMainButton: UIButton = {
+        let rightMainButton = UIButton()
+        rightMainButton.backgroundColor = .systemGray
+        rightMainButton.layer.cornerRadius = 0
+        return rightMainButton
     }()
     
     private lazy var numberOfAds: UILabel = {
         let numberOfAds = UILabel()
         numberOfAds.text = "Results: 0"
-        numberOfAds.font = UIFont.montseratt(ofSize: 15, weight: .regular)
+        numberOfAds.font = UIFont.sfProText(ofSize: 15, weight: .regular)
         
         return numberOfAds
     }()
@@ -36,7 +35,7 @@ final class MainViewController: UIViewController {
     private lazy var adsLabel: UILabel = {
         let adsLabel = UILabel()
         adsLabel.text = "Объявления"
-        adsLabel.font = UIFont.montseratt(ofSize: 25, weight: .bold)
+        adsLabel.font = UIFont.sfProText(ofSize: 25, weight: .bold)
         return adsLabel
     }()
     
@@ -47,14 +46,12 @@ final class MainViewController: UIViewController {
         return adsLabelAndNumberOfAds
     }()
     
-    private lazy var currentPosition: UIButton = {
-        let currentPosition = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
-        currentPosition.titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
-        currentPosition.setTitleColor(.black, for: .normal)
-        currentPosition.setImage(UIImage(systemName: "mappin.circle.fill"), for: .normal)
-        currentPosition.titleLabel?.font = UIFont.montseratt(ofSize: 20, weight: .medium)
-        currentPosition.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-        return currentPosition
+    private lazy var mainLabel: UILabel = {
+        let mainLabel = UILabel()
+        mainLabel.text = "Доска объявлений"
+        mainLabel.font = UIFont.sfProText(ofSize: 24, weight: .semiBold)
+        mainLabel.textColor = .black
+        return mainLabel
     }()
     
     private lazy var searchBarAndAdditionalSettings: UIStackView = {
@@ -76,26 +73,41 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createCurrentPossitionButton()
-        checkUserDefaultsCityName()
         createUI()
     }
-
+    
     func createUI() {
         setup()
+        setupMainLabel()
+        setupRightMainButton()
         setupSearchBarAndAdditionalSettingsStackView()
         createAnimalsCollectionView()
-        setupAdsLabelAndNumberOfAds()
-        setupLineView()
         setupAdsTableView()
     }
     
-    func setupLineView() {
-        lineView.snp.makeConstraints { maker in
-            maker.top.equalTo(adsLabelAndNumberOfAds.snp.bottom).inset(-10)
-            maker.left.right.equalToSuperview().inset(15)
-            maker.height.equalTo(0.4)
+    
+    func setupMainLabel() {
+        self.view.addSubview(mainLabel)
+        
+        mainLabel.snp.makeConstraints { maker in
+            maker.left.equalTo(self.view.safeAreaLayoutGuide).inset(20)
+            maker.top.equalTo(self.view.safeAreaLayoutGuide).inset(5)
         }
+    }
+    
+    func setupRightMainButton() {
+        self.view.addSubview(rightMainButton)
+        
+        rightMainButton.snp.makeConstraints { maker in
+            maker.right.equalTo(self.view.safeAreaLayoutGuide).inset(20)
+            maker.top.equalTo(self.view.safeAreaLayoutGuide).inset(5)
+            maker.width.equalTo(28) // Установите желаемую ширину кнопки
+            maker.height.equalTo(rightMainButton.snp.width)
+        }
+        
+        rightMainButton.layoutIfNeeded()
+        
+        rightMainButton.layer.cornerRadius = rightMainButton.frame.height / 2
     }
     
     func setup() {
@@ -103,48 +115,41 @@ final class MainViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
         self.view.addSubview(searchBarAndAdditionalSettings)
         self.view.addSubview(adsLabelAndNumberOfAds)
-        self.view.addSubview(lineView)
         self.view.addSubview(adsTableView)
     }
     
     func setupSearchBarAndAdditionalSettingsStackView() {
         
-        searchBarAndAdditionalSettings.addArrangedSubview(createSearchBar())
-        searchBarAndAdditionalSettings.addArrangedSubview(createAdditionalSettingsButton())
+        let additionalSettingsButton = createAdditionalSettingsButton()
         
-        searchBar.widthAnchor.constraint(equalTo: searchBarAndAdditionalSettings.widthAnchor, multiplier: 0.8).isActive = true
+        searchBarAndAdditionalSettings.addArrangedSubview(createSearchBar())
+        searchBarAndAdditionalSettings.addArrangedSubview(additionalSettingsButton)
+        
+        searchBar.widthAnchor.constraint(equalTo: searchBarAndAdditionalSettings.widthAnchor, multiplier: 0.91).isActive = true
         
         searchBarAndAdditionalSettings.snp.makeConstraints { maker in
             maker.top.equalTo(self.view.safeAreaLayoutGuide).inset(50)
             maker.left.right.equalToSuperview().inset(10)
             maker.height.equalToSuperview().multipliedBy(0.04)
         }
-    }
-    
-    func setupAdsLabelAndNumberOfAds() {
-        adsLabelAndNumberOfAds.addArrangedSubview(adsLabel)
-        adsLabelAndNumberOfAds.addArrangedSubview(numberOfAds)
-        
-        adsLabelAndNumberOfAds.snp.makeConstraints { maker in
-            maker.top.equalTo(animalsCollectionView.snp.bottom).inset(-25)
-            maker.left.right.equalTo(self.view.safeAreaLayoutGuide).inset(25)
-            maker.height.equalTo(self.view.safeAreaLayoutGuide).multipliedBy(0.05)
-        }
+        searchBarAndAdditionalSettings.layoutIfNeeded()
+        additionalSettingsButton.layer.cornerRadius = additionalSettingsButton.frame.width / 2
     }
     
     func createSearchBar() -> UISearchBar {
         searchBar.placeholder = "Начните поиск"
         searchBar.searchBarStyle = .minimal
-        searchBar.searchTextField.font = UIFont.montseratt(ofSize: 15, weight: .medium)
-        
+        searchBar.searchTextField.font = UIFont.sfProText(ofSize: 15, weight: .regular)
         return searchBar
     }
     
     func createAdditionalSettingsButton() -> UIButton {
-        additionalSettings.backgroundColor = .systemBlue
-        additionalSettings.layer.cornerRadius = 10
-        additionalSettings.setImage(UIImage(systemName: "checklist"), for: .normal)
+        let additionalSettings = UIButton()
+        additionalSettings.backgroundColor = .systemGray
         additionalSettings.tintColor = .white
+        additionalSettings.layer.cornerRadius = 0
+        
+        additionalSettings.layer.cornerRadius = additionalSettings.bounds.height / 2.1
         return additionalSettings
     }
     
@@ -158,60 +163,15 @@ final class MainViewController: UIViewController {
         }
     }
     
-    @objc func handleSwipeEdgeGesture(_ gesture: UIScreenEdgePanGestureRecognizer) {
-        sideMenuViewController = nil
-        configureMenuViewController()
-//        showBulletinViewController(shouldMove: true)
-    }
-    
-    func createCurrentPossitionButton() {
-        self.view.addSubview(currentPosition)
-        
-        currentPosition.snp.makeConstraints { maker in
-            maker.top.equalToSuperview().inset(50)
-            maker.height.equalTo(self.view.safeAreaLayoutGuide).multipliedBy(0.05)
-            maker.width.equalToSuperview().inset(20)
-            maker.centerX.equalToSuperview()
-        }
-    }
-    
     func setupAdsTableView() {
-        
         adsTableView.snp.makeConstraints { maker in
-            maker.top.equalTo(lineView.snp.bottom).inset(-10)
+            maker.top.equalTo(animalsCollectionView.snp.bottom).inset(-10)
             maker.left.right.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(5)
         }
     }
     
     @objc func menuTapped () {
         sideMenuViewController = nil
-        configureMenuViewController()
-//        showBulletinViewController(shouldMove: true)
-    }
-    
-    @objc func buttonTapped() {
-        let mapPosition = PositionSelectionViewController()
-        mapPosition.delegate = self
-        mapPosition.modalPresentationStyle = .formSheet
-        present(mapPosition, animated: true)
-    }
-    
-    func configureMenuViewController() {
-        if sideMenuViewController == nil {
-            guard let navigationBarView = navigationController?.view else { return }
-            
-            swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeGesture(_:)))
-            swipeGestureRecognizer?.direction = .left
-            
-            sideMenuViewController = SideMenuViewController()
-            view.insertSubview(sideMenuViewController.view, at: 5)
-            addChild(sideMenuViewController)
-            
-            navigationBarView.addSubview(sideMenuViewController.view)
-            sideMenuViewController.view.frame.size.width = 0
-            
-            sideMenuViewController.view.addGestureRecognizer(swipeGestureRecognizer!)
-        }
     }
     
     
@@ -221,46 +181,5 @@ final class MainViewController: UIViewController {
             menuView.frame.origin.x = -menuView.frame.size.width
         }
     }
-    
-//    func showBulletinViewController(shouldMove: Bool) {
-//        if shouldMove {
-//            // show
-//            UIView.animate(withDuration: 0.5,
-//                           delay: 0,
-//                           usingSpringWithDamping: 0.8,
-//                           initialSpringVelocity: 0,
-//                           options: .curveEaseInOut,
-//                           animations: {
-//                self.sideMenuViewController.view.frame.size.width = 250
-//            })
-//        } else {
-//            UIView.animate(withDuration: 0.5,
-//                           delay: 0,
-//                           usingSpringWithDamping: 0.8,
-//                           initialSpringVelocity: 0,
-//                           options: .curveEaseInOut,
-//                           animations: {
-//                self.sideMenuViewController.view.frame.size.width = 0
-//            })
-//        }
-//    }
-    
-    func checkUserDefaultsCityName() {
-        if userDefaults.object(forKey: cityKey) == nil {
-            let cityName = "Lida, Belarus"
-            userDefaults.setValue(cityName, forKey: cityKey)
-            currentPosition.setTitle(cityName, for: .normal)
-        } else {
-            let cityName = userDefaults.object(forKey: cityKey) ?? ""
-            currentPosition.setTitle(cityName as! String, for: .normal)
-        }
-    }
 }
-
-extension MainViewController: ChildViewControllerDelegate {
-    func didDismissFormSheet() {
-        checkUserDefaultsCityName()
-    }
-}
-
 

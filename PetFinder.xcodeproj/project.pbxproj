@@ -40,6 +40,7 @@
 		D8F70E992AE96571006543F0 /* SF-Pro-Text-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = D8F70E8D2AE96571006543F0 /* SF-Pro-Text-LightItalic.otf */; };
 		D8F70E9A2AE96571006543F0 /* SF-Pro-Text-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = D8F70E8E2AE96571006543F0 /* SF-Pro-Text-Light.otf */; };
 		D8F70E9B2AE96571006543F0 /* SF-Pro-Text-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = D8F70E8F2AE96571006543F0 /* SF-Pro-Text-Medium.otf */; };
+		D8F70E9D2AEC1E47006543F0 /* STTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F70E9C2AEC1E47006543F0 /* STTabbar.swift */; };
 		E6F0B5A79917F100D937E0D1 /* Pods_PetFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE2ACC640625F2B1CC0E5B2C /* Pods_PetFinder.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,7 +61,7 @@
 		D84297982ADC1E65006D6B06 /* Extansions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extansions.swift; sourceTree = "<group>"; };
 		D842979E2ADC312A006D6B06 /* AnimalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCollectionViewCell.swift; sourceTree = "<group>"; };
 		D84297A12ADC31E3006D6B06 /* ListAnimansCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAnimansCollectionView.swift; sourceTree = "<group>"; };
-		D86EA8832ADBCAE900B8D961 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		D86EA8832ADBCAE900B8D961 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D86EA8872ADBD10300B8D961 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D86EADA62AE043C900FB19B6 /* CustomTabBarControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarControllerViewController.swift; sourceTree = "<group>"; };
 		D86EADA82AE0469400FB19B6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +82,7 @@
 		D8F70E8D2AE96571006543F0 /* SF-Pro-Text-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-LightItalic.otf"; sourceTree = "<group>"; };
 		D8F70E8E2AE96571006543F0 /* SF-Pro-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Light.otf"; sourceTree = "<group>"; };
 		D8F70E8F2AE96571006543F0 /* SF-Pro-Text-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Medium.otf"; sourceTree = "<group>"; };
+		D8F70E9C2AEC1E47006543F0 /* STTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTabbar.swift; sourceTree = "<group>"; };
 		EE2ACC640625F2B1CC0E5B2C /* Pods_PetFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -159,6 +161,7 @@
 		D84297972ADC1E4F006D6B06 /* Help */ = {
 			isa = PBXGroup;
 			children = (
+				D8F70E9C2AEC1E47006543F0 /* STTabbar.swift */,
 				D84297982ADC1E65006D6B06 /* Extansions.swift */,
 				5873E3D72ADEEA7B00F51501 /* FontExtansion.swift */,
 				D86EADAC2AE04D1700FB19B6 /* ColorExtansion.swift */,
@@ -388,6 +391,7 @@
 				D86EADA92AE0469400FB19B6 /* SettingsViewController.swift in Sources */,
 				D84297962ADBF79B006D6B06 /* PositionSelectionViewController.swift in Sources */,
 				D86EADB22AE3B59000FB19B6 /* AdsModel.swift in Sources */,
+				D8F70E9D2AEC1E47006543F0 /* STTabbar.swift in Sources */,
 				5873E3A22ADB190200F51501 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

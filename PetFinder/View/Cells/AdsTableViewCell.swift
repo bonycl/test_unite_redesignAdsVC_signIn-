@@ -56,6 +56,7 @@ class AdsTableViewCell: UITableViewCell {
     
     func createUI(text: String) {
         self.selectionStyle = .none
+        self.backgroundColor = .clear
         labelText.text = text
         setup()
         makeConstraints()

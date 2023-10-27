@@ -30,6 +30,7 @@ class AdsTableView: UITableView {
         self.dataSource = self
         self.delegate = self
         self.separatorStyle = .none
+        self.backgroundColor = .white
     }
 }
 

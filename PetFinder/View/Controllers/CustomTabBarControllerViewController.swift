@@ -7,70 +7,60 @@
 
 import UIKit
 import SnapKit
+//import STTabbar
 
 class CustomTabBarControllerViewController: UITabBarController {
-
-    private let middleButtonDiameter: CGFloat = 42
-    
-    private lazy var leftButton: UIButton = {
-        let leftButton = UIButton()
-        leftButton.layer.cornerRadius = middleButtonDiameter / 2
-        leftButton.backgroundColor = .systemGray
-        leftButton.translatesAutoresizingMaskIntoConstraints = false
-        return leftButton
-    }()
-    
-    private lazy var middleButton: UIButton = {
-        let middleButton = UIButton()
-        middleButton.layer.cornerRadius = middleButtonDiameter / 2
-        middleButton.backgroundColor = .systemGray
-        middleButton.translatesAutoresizingMaskIntoConstraints = false
-        middleButton.addTarget(self, action: #selector(addTarget), for: .touchUpInside)
-        return middleButton
-    }()
-    
-    private lazy var rightButton: UIButton = {
-        let rightButton = UIButton()
-        rightButton.layer.cornerRadius = middleButtonDiameter / 2
-        rightButton.backgroundColor = .systemGray
-        rightButton.translatesAutoresizingMaskIntoConstraints = false
-        return rightButton
-    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabBar()
         configureTabBar()
+        let customTabBar = STTabbar()
+        setValue(customTabBar, forKey: "tabBar")
+        customTabBar.centerButtonColor = UIColor(hex: 0x11c7db, alpha: 1)
+        customTabBar.buttonImage = UIImage(named: "createAd")
+        customTabBar.centerButtonHeight = 48
+        customTabBar.padding = 5
+        customTabBar.tabbarColor = UIColor(hex: 0xfcfcfc, alpha: 1)
+        customTabBar.unselectedItemColor = UIColor(hex: 0x8d8d8d, alpha: 1)
+
     }
     
     func setupTabBar() {
-        viewControllers = [setupVC(viewController: MainViewController(), title: "Доска объявлений", image: UIImage(systemName: "house.fill")), setupVC(viewController: UIViewController(), title: "Создать объявление", image: nil), setupVC(viewController: ProfileViewController(), title: "Профиль", image: UIImage(systemName: "person.fill"))]
+        
+        let mainViewController = setupVC(viewController: MainViewController(), title: "Объявления", image: setupImage(named: "clipboard"))
+        
+        let createViewController = setupVC(viewController: UIViewController(), title: "Сервисы", image: setupImage(named: "services"))
+        let nocreateViewController = setupVC(viewController: UIViewController(), title: "", image: nil)
+        let profileViewController = setupVC(viewController: ProfileViewController(), title: "Избранное", image: setupImage(named: "heart"))
+        let createViewControllerS = setupVC(viewController: UIViewController(), title: "Профиль", image: setupImage(named: "profile"))
+        
+        // Ограничиваем количество отображаемых контроллеров в таб-баре
+        let visibleViewControllers = [mainViewController, createViewController, nocreateViewController, profileViewController, createViewControllerS]
+        viewControllers = visibleViewControllers
+    }
+
+    func setupImage(named: String) -> UIImage {
+        let image = UIImage(named: named)
+        return UIImage(cgImage: (image?.cgImage!)!, scale: 12, orientation: image!.imageOrientation)
     }
     
+
+    
     private func setupVC(viewController: UIViewController, title: String, image: UIImage?) -> UIViewController {
-        let font = UIFont.sfProText(ofSize: 11, weight: .regular)
+        let font = UIFont.sfProText(ofSize: 10, weight: .regular)
         let attributes: [NSAttributedString.Key: Any] = [.font: font]
 
         viewController.tabBarItem.title = title
         viewController.tabBarItem.setTitleTextAttributes(attributes, for: .normal)
         viewController.tabBarItem.image = image
         return viewController
+
     }
     
     func configureTabBar() {
-        
-        tabBar.addSubview(middleButton)
-
-        middleButton.snp.makeConstraints { maker in
-            maker.height.equalTo(middleButtonDiameter)
-            maker.width.equalTo(middleButtonDiameter)
-            maker.centerX.equalTo(tabBar.snp.centerX)
-            maker.top.equalTo(tabBar.snp.top).offset(-10)
-        }
-        
-        tabBar.tintColor = .black
-        tabBar.unselectedItemTintColor = .systemGray
-        tabBar.backgroundColor = .clear
+        tabBar.tintColor = UIColor(hex: 0x11c7db, alpha: 1)
+        tabBar.backgroundColor = UIColor(hex: 0xfcfcfc, alpha: 1)
     }
     
     @objc

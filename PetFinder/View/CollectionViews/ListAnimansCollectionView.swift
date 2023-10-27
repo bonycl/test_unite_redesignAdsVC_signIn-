@@ -38,6 +38,7 @@ class ListAnimansCollectionView: UICollectionView {
         self.showsHorizontalScrollIndicator = false
 
         self.collectionViewLayout = layout
+        self.backgroundColor = .clear
     }
 }
 

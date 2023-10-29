@@ -28,6 +28,7 @@
 		D86EADAF2AE3B55E00FB19B6 /* AdsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86EADAE2AE3B55E00FB19B6 /* AdsTableView.swift */; };
 		D86EADB22AE3B59000FB19B6 /* AdsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86EADB12AE3B59000FB19B6 /* AdsModel.swift */; };
 		D86EADB42AE3B69000FB19B6 /* AdsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86EADB32AE3B69000FB19B6 /* AdsTableViewCell.swift */; };
+		D8A9E8162AEE3A9900E509EC /* CustomSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A9E8152AEE3A9900E509EC /* CustomSearchTextField.swift */; };
 		D8F70E902AE96571006543F0 /* SF-Pro-Text-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = D8F70E842AE96571006543F0 /* SF-Pro-Text-Heavy.otf */; };
 		D8F70E912AE96571006543F0 /* SF-Pro-Text-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = D8F70E852AE96571006543F0 /* SF-Pro-Text-SemiboldItalic.otf */; };
 		D8F70E922AE96571006543F0 /* SF-Pro-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D8F70E862AE96571006543F0 /* SF-Pro-Text-Regular.otf */; };
@@ -70,6 +71,7 @@
 		D86EADAE2AE3B55E00FB19B6 /* AdsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsTableView.swift; sourceTree = "<group>"; };
 		D86EADB12AE3B59000FB19B6 /* AdsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsModel.swift; sourceTree = "<group>"; };
 		D86EADB32AE3B69000FB19B6 /* AdsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsTableViewCell.swift; sourceTree = "<group>"; };
+		D8A9E8152AEE3A9900E509EC /* CustomSearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchTextField.swift; sourceTree = "<group>"; };
 		D8F70E842AE96571006543F0 /* SF-Pro-Text-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Heavy.otf"; sourceTree = "<group>"; };
 		D8F70E852AE96571006543F0 /* SF-Pro-Text-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-SemiboldItalic.otf"; sourceTree = "<group>"; };
 		D8F70E862AE96571006543F0 /* SF-Pro-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Regular.otf"; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 		D86EA8852ADBD09400B8D961 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D8A9E8142AEE3A6B00E509EC /* SearchTextField */,
 				D80C90B52ADEFF9400C9873C /* TableViews */,
 				D84297A02ADC31B9006D6B06 /* CollectionViews */,
 				D842979D2ADC3102006D6B06 /* Cells */,
@@ -226,6 +229,14 @@
 				D86EADB12AE3B59000FB19B6 /* AdsModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D8A9E8142AEE3A6B00E509EC /* SearchTextField */ = {
+			isa = PBXGroup;
+			children = (
+				D8A9E8152AEE3A9900E509EC /* CustomSearchTextField.swift */,
+			);
+			path = SearchTextField;
 			sourceTree = "<group>";
 		};
 		D8EE67E52ADDA52800C3673F /* Fonts */ = {
@@ -386,6 +397,7 @@
 				D86EADAF2AE3B55E00FB19B6 /* AdsTableView.swift in Sources */,
 				D84297A22ADC31E3006D6B06 /* ListAnimansCollectionView.swift in Sources */,
 				D86EADA72AE043C900FB19B6 /* CustomTabBarControllerViewController.swift in Sources */,
+				D8A9E8162AEE3A9900E509EC /* CustomSearchTextField.swift in Sources */,
 				5873E3A02ADB190200F51501 /* AppDelegate.swift in Sources */,
 				D80C90BA2ADF024100C9873C /* ListMenuTableViewCell.swift in Sources */,
 				D86EADA92AE0469400FB19B6 /* SettingsViewController.swift in Sources */,

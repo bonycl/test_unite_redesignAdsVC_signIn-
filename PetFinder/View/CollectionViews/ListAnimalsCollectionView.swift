@@ -8,9 +8,11 @@
 import UIKit
 import SnapKit
 
-class ListAnimansCollectionView: UICollectionView {
+class ListAnimalsCollectionView: UICollectionView {
     
-    private let massivePet = ["Все", "Собаки", "Кошки", "Птицы", "Прочее"]
+    private let massivePet = ["Сортировка", "Собаки", "Кошки", "Птицы", "Прочее"]
+    private let imageMassive = ["sortImage", "dog", "cat", "bird", "mouse"]
+    
     private var selectedCell = [IndexPath]()
     
     init() {
@@ -43,7 +45,7 @@ class ListAnimansCollectionView: UICollectionView {
 }
 
 // Расширение для реализации методов UICollectionViewDataSource
-extension ListAnimansCollectionView: UICollectionViewDataSource {
+extension ListAnimalsCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return massivePet.count
     }
@@ -56,15 +58,15 @@ extension ListAnimansCollectionView: UICollectionViewDataSource {
     }
     
     private func configure(cell: AnimalCollectionViewCell, for indexPath: IndexPath) -> UICollectionViewCell {
-        cell.createUI(text: massivePet[indexPath.row])
+        cell.createUI(text: massivePet[indexPath.row], imageName: imageMassive[indexPath.row])
         
-        if indexPath.row == 0 && selectedCell.isEmpty {
-            cell.backgroundColor = .systemBlue
-        }
-        
-        if selectedCell.contains(indexPath) {
-            cell.backgroundColor = .systemBlue
-        }
+//        if indexPath.row == 0 && selectedCell.isEmpty {
+//            cell.backgroundColor = .systemBlue
+//        }
+//        
+//        if selectedCell.contains(indexPath) {
+//            cell.backgroundColor = .systemBlue
+//        }
         
         return cell
     }
@@ -75,12 +77,13 @@ extension ListAnimansCollectionView: UICollectionViewDataSource {
             return
         }
         
-        for i in 0..<collectionView.numberOfItems(inSection: indexPath.section) {
-            let indexPath = IndexPath(item: i, section: indexPath.section)
-            if let cell = collectionView.cellForItem(at: indexPath) {
-                cell.backgroundColor = .systemGray
-            }
-        }
+//        for i in 0..<collectionView.numberOfItems(inSection: indexPath.section) {
+//            let indexPath = IndexPath(item: i, section: indexPath.section)
+//            if let cell = collectionView.cellForItem(at: indexPath) {
+//                cell.backgroundColor = .systemGray
+//            }
+//        }
+        
         
         cell.backgroundColor = .systemBlue
         selectedCell.removeAll()
@@ -90,11 +93,11 @@ extension ListAnimansCollectionView: UICollectionViewDataSource {
 }
 
 
-extension ListAnimansCollectionView: UICollectionViewDelegateFlowLayout {
+extension ListAnimalsCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionViewWidth = collectionView.bounds.width
         let itemWidth = collectionViewWidth * 0.2 // 10% от ширины collectionView
-        let itemHeight = itemWidth / 1.5 // Предполагаем, что ячейка квадратная
+        let itemHeight = itemWidth * 1.15 // Предполагаем, что ячейка квадратная
         return CGSize(width: itemWidth, height: itemHeight)
     }
 }

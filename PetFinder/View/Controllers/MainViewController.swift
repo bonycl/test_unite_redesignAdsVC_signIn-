@@ -15,13 +15,13 @@ final class MainViewController: UIViewController, UISearchBarDelegate {
     private var swipeGestureRecognizer: UISwipeGestureRecognizer?
     private let userDefaults = UserDefaults.standard
     private let cityKey = "city"
-    private let animalsCollectionView = ListAnimansCollectionView()
+    private let animalsCollectionView = ListAnimalsCollectionView()
     private let adsTableView = AdsTableView()
     
     private lazy var searchandNotificationView: UIView = {
         let searchandNotificationView = UIView()
-        searchandNotificationView.backgroundColor = UIColor(hex: 0xfdd1a7, alpha: 1)
-        
+        searchandNotificationView.backgroundColor = UIColor(hex: 0xEFBFA5, alpha: 1)
+        searchandNotificationView.layer.cornerRadius = 12
         return searchandNotificationView
     }()
     
@@ -33,14 +33,7 @@ final class MainViewController: UIViewController, UISearchBarDelegate {
         rightMainButton.setImage(UIImage(named: "bell"), for: .normal)
         return rightMainButton
     }()
-    
-    private lazy var adsLabel: UILabel = {
-        let adsLabel = UILabel()
-        adsLabel.text = "Объявления"
-        adsLabel.font = UIFont.sfProText(ofSize: 25, weight: .bold)
-        return adsLabel
-    }()
-    
+
     private lazy var mainLabel: UILabel = {
         let mainLabel = UILabel()
         mainLabel.text = "Доска объявлений"
@@ -49,16 +42,7 @@ final class MainViewController: UIViewController, UISearchBarDelegate {
         return mainLabel
     }()
 
-    private lazy var searchBar: UISearchBar = {
-        let searchBar = UISearchBar()
-        searchBar.searchBarStyle = .minimal
-        return searchBar
-    }()
-    
-    private lazy var additionalSettings: UIButton = {
-        let additionalSettings = UIButton()
-        return additionalSettings
-    }()
+//
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,7 +95,7 @@ final class MainViewController: UIViewController, UISearchBarDelegate {
     }
     
     func setup() {
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = UIColor(hex: 0xF9F6F3)
         self.hideKeyboardWhenTappedAround()
         self.view.addSubview(adsTableView)
     }
@@ -132,9 +116,9 @@ final class MainViewController: UIViewController, UISearchBarDelegate {
         self.view.addSubview(animalsCollectionView)
         
         animalsCollectionView.snp.makeConstraints {maker in
-            maker.top.equalTo(searchandNotificationView.snp.bottom).inset(-10)
+            maker.top.equalTo(searchandNotificationView.snp.bottom).inset(-1)
             maker.left.right.equalToSuperview().inset(10)
-            maker.height.equalTo(self.view.safeAreaLayoutGuide).multipliedBy(0.1)
+            maker.height.equalTo(self.view.safeAreaLayoutGuide).multipliedBy(0.15)
         }
     }
     

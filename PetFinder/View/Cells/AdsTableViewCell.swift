@@ -9,30 +9,43 @@ import UIKit
 import SnapKit
 
 class AdsTableViewCell: UITableViewCell {
-    
-    private lazy var  infoPetStackView: UIStackView = {
-        let infoPetStackView = UIStackView()
-        infoPetStackView.distribution = .equalSpacing
-        infoPetStackView.axis = .vertical
-        return infoPetStackView
-    }()
-    
+        
     private lazy var imagePet: UIImageView = {
         let imagePet = UIImageView()
         imagePet.clipsToBounds = true
 
-        let image = UIImage(named: "Cat")
+        let image = UIImage(named: "dog_back")
         imagePet.image = image
         imagePet.contentMode = .scaleToFill
-        imagePet.backgroundColor = .red
-        imagePet.layer.cornerRadius = 20
+        imagePet.backgroundColor = .clear
+        imagePet.layer.cornerRadius = 24
         return imagePet
     }()
+    
+    private lazy var typeAd: UIImageView = {
+        let typeAd = UIImageView()
+        let image = UIImage(named: "lost_image")
+        typeAd.image = image
+        typeAd.contentMode = .scaleToFill
+        typeAd.backgroundColor = .clear
+        return typeAd
+    }()
+    
+    private lazy var typeAdText: UILabel = {
+        let typeAdText = UILabel()
+        typeAdText.font = UIFont.sfProText(ofSize: 12, weight: .light)
+        typeAdText.text = "Потерян"
+        typeAdText.textColor = .black
+        typeAdText.numberOfLines = 0
+        return typeAdText
+    }()
+
     
     private lazy var mainView: UIView = {
         let mainView = UIView()
         mainView.layer.cornerRadius = 20
-        mainView.backgroundColor = .red
+        mainView.backgroundColor = UIColor(hex: 0xFDF5F0, alpha: 1)
+//        mainView.backgroundColor = .red
         return mainView
     }()
     
@@ -42,14 +55,23 @@ class AdsTableViewCell: UITableViewCell {
         return insertView
     }()
     
-    private lazy var labelText: UILabel = {
+    private lazy var labelAd: UILabel = {
         let labelText = UILabel()
-        labelText.font = UIFont.sfProText(ofSize: 20, weight: .bold)
+        labelText.font = UIFont.sfProText(ofSize: 20, weight: .semiBold)
         labelText.textColor = .black
         labelText.numberOfLines = 0
         return labelText
     }()
 
+    private lazy var dateCreation: UILabel = {
+        let dateCreation = UILabel()
+        dateCreation.font = UIFont.sfProText(ofSize: 12, weight: .light)
+        dateCreation.textColor = .black
+        dateCreation.numberOfLines = 0
+        dateCreation.text = "Вчера, 21:35"
+        return dateCreation
+    }()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -57,7 +79,7 @@ class AdsTableViewCell: UITableViewCell {
     func createUI(text: String) {
         self.selectionStyle = .none
         self.backgroundColor = .clear
-        labelText.text = text
+        labelAd.text = text
         setup()
         makeConstraints()
     }
@@ -65,32 +87,52 @@ class AdsTableViewCell: UITableViewCell {
     func setup() {
         self.addSubview(mainView)
         self.addSubview(insertView)
+        mainView.addSubview(labelAd)
+        mainView.addSubview(dateCreation)
         mainView.addSubview(imagePet)
-        mainView.addSubview(labelText)
+        mainView.addSubview(typeAd)
+        mainView.addSubview(typeAdText)
     }
-    
+
     func makeConstraints() {
+        labelAd.snp.makeConstraints { maker in
+            maker.top.left.equalToSuperview().inset(10)
+        }
         
+        dateCreation.snp.makeConstraints { maker in
+            maker.top.equalTo(labelAd.snp.bottom).inset(-5)
+            maker.left.equalToSuperview().inset(10)
+            
+        }
+        
+        imagePet.snp.makeConstraints { maker in
+            maker.top.equalTo(dateCreation.snp.bottom).inset(-15)
+            maker.left.equalToSuperview().inset(10)
+            maker.width.equalTo(self.safeAreaLayoutGuide).multipliedBy(0.35)
+            maker.bottom.equalToSuperview().inset(10)
+        }
+         
         insertView.snp.makeConstraints { maker in
             maker.left.right.bottom.equalToSuperview()
             maker.height.equalTo(10)
         }
-        
+      
         mainView.snp.makeConstraints { maker in
             maker.left.right.top.equalToSuperview().inset(10)
             maker.bottom.equalTo(insertView.snp.top).inset(-5)
         }
         
-        imagePet.snp.makeConstraints { maker in
-            maker.left.bottom.top.equalToSuperview()
-            maker.width.equalTo(imagePet.snp.height).multipliedBy(0.9)
+        typeAd.snp.makeConstraints { maker in
+            maker.top.equalToSuperview().inset(10)
+            maker.right.equalToSuperview().inset(15)
+            maker.width.equalTo(self.safeAreaLayoutGuide).multipliedBy(0.1)
+            maker.height.equalTo(self.safeAreaLayoutGuide).multipliedBy(0.15)
         }
         
-        labelText.snp.makeConstraints { maker in
-            maker.top.right.equalToSuperview().inset(10)
-            maker.left.equalTo(imagePet.snp.right).inset(-10)
+        typeAdText.snp.makeConstraints { maker in
+            maker.top.equalTo(typeAd.snp.bottom).inset(5)
+            maker.right.equalToSuperview().inset(10)
         }
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

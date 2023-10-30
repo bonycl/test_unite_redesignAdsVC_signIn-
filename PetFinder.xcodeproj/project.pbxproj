@@ -18,7 +18,7 @@
 		D84297962ADBF79B006D6B06 /* PositionSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84297952ADBF79B006D6B06 /* PositionSelectionViewController.swift */; };
 		D84297992ADC1E65006D6B06 /* Extansions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84297982ADC1E65006D6B06 /* Extansions.swift */; };
 		D842979F2ADC312A006D6B06 /* AnimalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D842979E2ADC312A006D6B06 /* AnimalCollectionViewCell.swift */; };
-		D84297A22ADC31E3006D6B06 /* ListAnimansCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84297A12ADC31E3006D6B06 /* ListAnimansCollectionView.swift */; };
+		D84297A22ADC31E3006D6B06 /* ListAnimalsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84297A12ADC31E3006D6B06 /* ListAnimalsCollectionView.swift */; };
 		D86EA8842ADBCAE900B8D961 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = D86EA8832ADBCAE900B8D961 /* Podfile */; };
 		D86EA8882ADBD10300B8D961 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86EA8872ADBD10300B8D961 /* MainViewController.swift */; };
 		D86EADA72AE043C900FB19B6 /* CustomTabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86EADA62AE043C900FB19B6 /* CustomTabBarControllerViewController.swift */; };
@@ -61,7 +61,7 @@
 		D84297952ADBF79B006D6B06 /* PositionSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionSelectionViewController.swift; sourceTree = "<group>"; };
 		D84297982ADC1E65006D6B06 /* Extansions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extansions.swift; sourceTree = "<group>"; };
 		D842979E2ADC312A006D6B06 /* AnimalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCollectionViewCell.swift; sourceTree = "<group>"; };
-		D84297A12ADC31E3006D6B06 /* ListAnimansCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAnimansCollectionView.swift; sourceTree = "<group>"; };
+		D84297A12ADC31E3006D6B06 /* ListAnimalsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAnimalsCollectionView.swift; sourceTree = "<group>"; };
 		D86EA8832ADBCAE900B8D961 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D86EA8872ADBD10300B8D961 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D86EADA62AE043C900FB19B6 /* CustomTabBarControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarControllerViewController.swift; sourceTree = "<group>"; };
@@ -184,7 +184,7 @@
 		D84297A02ADC31B9006D6B06 /* CollectionViews */ = {
 			isa = PBXGroup;
 			children = (
-				D84297A12ADC31E3006D6B06 /* ListAnimansCollectionView.swift */,
+				D84297A12ADC31E3006D6B06 /* ListAnimalsCollectionView.swift */,
 			);
 			path = CollectionViews;
 			sourceTree = "<group>";
@@ -395,7 +395,7 @@
 				D86EADAD2AE04D1700FB19B6 /* ColorExtansion.swift in Sources */,
 				5873E3D82ADEEA7B00F51501 /* FontExtansion.swift in Sources */,
 				D86EADAF2AE3B55E00FB19B6 /* AdsTableView.swift in Sources */,
-				D84297A22ADC31E3006D6B06 /* ListAnimansCollectionView.swift in Sources */,
+				D84297A22ADC31E3006D6B06 /* ListAnimalsCollectionView.swift in Sources */,
 				D86EADA72AE043C900FB19B6 /* CustomTabBarControllerViewController.swift in Sources */,
 				D8A9E8162AEE3A9900E509EC /* CustomSearchTextField.swift in Sources */,
 				5873E3A02ADB190200F51501 /* AppDelegate.swift in Sources */,

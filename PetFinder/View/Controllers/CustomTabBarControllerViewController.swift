@@ -17,7 +17,7 @@ class CustomTabBarControllerViewController: UITabBarController {
         configureTabBar()
         let customTabBar = STTabbar()
         setValue(customTabBar, forKey: "tabBar")
-        customTabBar.centerButtonColor = UIColor(hex: 0x11c7db, alpha: 1)
+        customTabBar.centerButtonColor = UIColor(hex: 0x8965C3, alpha: 1)
         customTabBar.buttonImage = UIImage(named: "createAd")
         customTabBar.centerButtonHeight = 48
         customTabBar.padding = 5
@@ -59,7 +59,7 @@ class CustomTabBarControllerViewController: UITabBarController {
     }
     
     func configureTabBar() {
-        tabBar.tintColor = UIColor(hex: 0x11c7db, alpha: 1)
+        tabBar.tintColor = UIColor(hex: 0x8965C3, alpha: 1)
         tabBar.backgroundColor = UIColor(hex: 0xfcfcfc, alpha: 1)
     }
     

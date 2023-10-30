@@ -30,7 +30,7 @@ class AdsTableView: UITableView {
         self.dataSource = self
         self.delegate = self
         self.separatorStyle = .none
-        self.backgroundColor = .white
+        self.backgroundColor = .clear
     }
 }
 
@@ -59,7 +59,7 @@ extension AdsTableView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
           let tableViewHeight = tableView.bounds.height
-          let cellHeight = tableViewHeight * 0.35 // 20% от высоты tableView
+          let cellHeight = tableViewHeight * 0.5
           return cellHeight
       }
 

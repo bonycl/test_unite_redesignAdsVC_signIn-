@@ -42,8 +42,6 @@ final class MainViewController: UIViewController, UISearchBarDelegate {
         return mainLabel
     }()
 
-//
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         createUI()
@@ -63,7 +61,7 @@ final class MainViewController: UIViewController, UISearchBarDelegate {
         
         searchandNotificationView.snp.makeConstraints { maker in
             maker.left.right.top.equalToSuperview()
-            maker.height.equalToSuperview().multipliedBy(0.2)
+            maker.height.equalTo(self.view.safeAreaLayoutGuide).multipliedBy(0.25)
         }
         
         setupMainLabel()
@@ -85,7 +83,7 @@ final class MainViewController: UIViewController, UISearchBarDelegate {
         notificationButton.snp.makeConstraints { maker in
             maker.right.equalTo(self.view.safeAreaLayoutGuide).inset(20)
             maker.top.equalTo(self.view.safeAreaLayoutGuide).inset(5)
-            maker.width.equalTo(28) // Установите желаемую ширину кнопки
+            maker.width.equalTo(28)
             maker.height.equalTo(notificationButton.snp.width)
         }
         
@@ -108,7 +106,6 @@ final class MainViewController: UIViewController, UISearchBarDelegate {
                  maker.top.equalTo(mainLabel.snp.bottom).inset(-15)
                  maker.left.right.equalToSuperview().inset(10)
                  maker.height.equalTo(48)
-     
              }
     }
     
@@ -116,16 +113,16 @@ final class MainViewController: UIViewController, UISearchBarDelegate {
         self.view.addSubview(animalsCollectionView)
         
         animalsCollectionView.snp.makeConstraints {maker in
-            maker.top.equalTo(searchandNotificationView.snp.bottom).inset(-1)
-            maker.left.right.equalToSuperview().inset(10)
-            maker.height.equalTo(self.view.safeAreaLayoutGuide).multipliedBy(0.15)
+            maker.top.equalTo(searchandNotificationView.snp.bottom).inset(-24)
+            maker.left.right.equalToSuperview()
+            maker.height.equalTo(78)
         }
     }
     
     func setupAdsTableView() {
         adsTableView.snp.makeConstraints { maker in
-            maker.top.equalTo(animalsCollectionView.snp.bottom).inset(-10)
-            maker.left.right.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(5)
+            maker.top.equalTo(animalsCollectionView.snp.bottom).inset(-20)
+            maker.left.right.bottom.equalToSuperview()
         }
     }
     

@@ -23,7 +23,6 @@ class CustomTabBarControllerViewController: UITabBarController {
         customTabBar.padding = 5
         customTabBar.tabbarColor = UIColor(hex: 0xfcfcfc, alpha: 1)
         customTabBar.unselectedItemColor = UIColor(hex: 0x8d8d8d, alpha: 1)
-
     }
     
     func setupTabBar() {
@@ -45,8 +44,6 @@ class CustomTabBarControllerViewController: UITabBarController {
         return UIImage(cgImage: (image?.cgImage!)!, scale: 12, orientation: image!.imageOrientation)
     }
     
-
-    
     private func setupVC(viewController: UIViewController, title: String, image: UIImage?) -> UIViewController {
         let font = UIFont.sfProText(ofSize: 10, weight: .regular)
         let attributes: [NSAttributedString.Key: Any] = [.font: font]
@@ -55,7 +52,6 @@ class CustomTabBarControllerViewController: UITabBarController {
         viewController.tabBarItem.setTitleTextAttributes(attributes, for: .normal)
         viewController.tabBarItem.image = image
         return viewController
-
     }
     
     func configureTabBar() {

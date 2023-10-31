@@ -46,7 +46,7 @@ final class AnimalCollectionViewCell: UICollectionViewCell {
         }
         labelText.snp.makeConstraints { maker in
             maker.top.equalTo(imageCell.snp.bottom).inset(-5)
-            maker.left.right.equalToSuperview().inset(1)
+            maker.left.right.equalToSuperview().inset(-4)
         }
     }
 }

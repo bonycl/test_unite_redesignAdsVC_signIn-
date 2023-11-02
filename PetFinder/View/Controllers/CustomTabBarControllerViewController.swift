@@ -39,9 +39,14 @@ class CustomTabBarControllerViewController: UITabBarController {
         viewControllers = visibleViewControllers
     }
 
-    func setupImage(named: String) -> UIImage {
-        let image = UIImage(named: named)
-        return UIImage(cgImage: (image?.cgImage!)!, scale: 12, orientation: image!.imageOrientation)
+    func setupImage(named: String) -> UIImage? {
+        if let image = UIImage(named: named) {
+            return UIImage(cgImage: (image.cgImage!), scale: 12, orientation: image.imageOrientation)
+
+        } else {
+            return nil
+        }
+
     }
     
     private func setupVC(viewController: UIViewController, title: String, image: UIImage?) -> UIViewController {

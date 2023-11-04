@@ -59,27 +59,8 @@ extension AdsTableView: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let tableViewHeight = tableView.bounds.height
-        let cellHeight = tableViewHeight * 0.5
         return 235
     }
-    
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        // действие удаления
-        let actionDelete = UIContextualAction(style: .destructive, title: "Удалить") { _,_,_ in
-            
-        }
-        
-        let actio = UIContextualAction(style: .normal, title: "Сохранить") { _,_,_ in
-            
-        }
-        
-        // формируем экземпляр, описывающий доступные действия
-        let actions = UISwipeActionsConfiguration(actions: [actionDelete, actio])
-        return actions
-    }
-
-
-    }
+}
 
 

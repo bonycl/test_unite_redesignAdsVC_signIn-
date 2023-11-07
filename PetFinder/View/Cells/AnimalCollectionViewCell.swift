@@ -38,15 +38,16 @@ final class AnimalCollectionViewCell: UICollectionViewCell {
     }
     
     func makeConstaints() {
-        
         imageCell.snp.makeConstraints { maker in
-            maker.top.equalToSuperview().inset(10)
-            maker.left.right.equalToSuperview().inset(1)
-            maker.height.equalTo(self.safeAreaLayoutGuide).multipliedBy(0.6)
+            maker.top.equalToSuperview().inset(1)
+            maker.left.right.equalToSuperview()
+            maker.height.width.equalTo(56)
         }
+        
         labelText.snp.makeConstraints { maker in
-            maker.top.equalTo(imageCell.snp.bottom).inset(-5)
-            maker.left.right.equalToSuperview().inset(-4)
+            maker.top.equalTo(imageCell.snp.bottom).inset(-8)
+            maker.left.right.equalToSuperview()
+            maker.bottom.equalToSuperview()
         }
     }
 }

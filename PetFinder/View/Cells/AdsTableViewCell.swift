@@ -22,6 +22,11 @@ class AdsTableViewCell: UITableViewCell {
         let favorites = UIButton()
         favorites.setImage(UIImage(named: "star"), for: .normal)
         favorites.addTarget(self, action: #selector(favoritesButtonTapped), for: .touchUpInside)
+        favorites.imageView?.layer.shadowColor = UIColor.black.cgColor
+        favorites.imageView?.layer.shadowOpacity = 0.5
+        favorites.imageView?.layer.shadowOffset = CGSize(width: 1, height: 1)
+        favorites.imageView?.layer.shadowRadius = 1
+
 
         return favorites
     }()
@@ -34,7 +39,7 @@ class AdsTableViewCell: UITableViewCell {
         currentPossitionAd.titleLabel?.numberOfLines = 1
         
         let image = UIImage(named: "mapPoint")
-        let resizedImage = image?.resized(toSize: CGSize(width: 15, height: 18))
+        let resizedImage = image?.resized(toSize: CGSize(width: 18, height: 20))
         
         currentPossitionAd.setImage(resizedImage, for: .normal)
         
@@ -56,7 +61,7 @@ class AdsTableViewCell: UITableViewCell {
     private lazy var typeAdStack : UIStackView = {
         let typeAdStack = UIStackView()
         typeAdStack.distribution = .fill
-        typeAdStack.spacing = -8
+        typeAdStack.spacing = 2
         typeAdStack.axis = .vertical
         typeAdStack.alignment = .center
         return typeAdStack
@@ -66,10 +71,11 @@ class AdsTableViewCell: UITableViewCell {
         let typeAd = UIImageView()
         let image = UIImage(named: "lost_image")
         typeAd.image = image
-        typeAd.contentMode = .scaleToFill
-        typeAd.backgroundColor = .clear
+        typeAd.contentMode = .scaleAspectFill
+        typeAd.clipsToBounds = true
         return typeAd
     }()
+
     
     private lazy var typeAdText: UILabel = {
         let typeAdText = UILabel()
@@ -82,9 +88,9 @@ class AdsTableViewCell: UITableViewCell {
     
     private lazy var mainView: UIView = {
         let mainView = UIView()
-        mainView.layer.cornerRadius = 20
+        mainView.layer.cornerRadius = 12
         mainView.backgroundColor = UIColor(hex: 0xFDF5F0, alpha: 1)
-//        mainView.backgroundColor = .red
+//        mainView.backgroundColor = .gray
         return mainView
     }()
     
@@ -95,11 +101,12 @@ class AdsTableViewCell: UITableViewCell {
     }()
     
     private lazy var labelAd: UILabel = {
-        let labelText = UILabel()
-        labelText.font = UIFont.sfProText(ofSize: 20, weight: .semiBold)
-        labelText.textColor = .black
-        labelText.numberOfLines = 0
-        return labelText
+        let labelAd = UILabel()
+        labelAd.font = UIFont.sfProText(ofSize: 20, weight: .semiBold)
+        labelAd.textColor = .black
+        labelAd.lineBreakMode = .byTruncatingTail
+        labelAd.numberOfLines = 0
+        return labelAd
     }()
 
     private lazy var dateCreation: UILabel = {
@@ -175,52 +182,56 @@ class AdsTableViewCell: UITableViewCell {
     }
 
     func makeConstraints() {
-        labelAd.snp.makeConstraints { maker in
-            maker.top.equalToSuperview().inset(12)
-            maker.left.equalToSuperview().inset(16)
+        
+        insertView.snp.makeConstraints { maker in
+            maker.left.right.bottom.equalToSuperview()
+            maker.height.equalTo(24)
+        }
+      
+        mainView.snp.makeConstraints { maker in
+            maker.left.right.top.equalToSuperview()
+            maker.bottom.equalTo(insertView.snp.top).inset(0)
         }
         
-        dateCreation.snp.makeConstraints { maker in
-            maker.top.equalTo(labelAd.snp.bottom).inset(7)
+        labelAd.snp.makeConstraints { maker in
+            maker.top.equalToSuperview().inset(14)
             maker.left.equalToSuperview().inset(16)
+            maker.right.equalToSuperview().inset(72)
+            maker.height.equalTo(22)
+        }
+        
+        typeAd.snp.makeConstraints { maker in
+            maker.height.width.equalTo(24)
+        }
+        
+        typeAdStack.snp.makeConstraints { maker in
+            maker.top.equalToSuperview().inset(14)
+            maker.right.equalToSuperview().inset(15)
+        }
+
+        dateCreation.snp.makeConstraints { maker in
+            maker.top.equalTo(labelAd.snp.bottom).inset(-4)
+            maker.left.equalToSuperview().inset(16)
+            maker.height.equalTo(14)
             
         }
         
         imagePet.snp.makeConstraints { maker in
             maker.top.equalTo(dateCreation.snp.bottom).inset(-12)
             maker.left.equalToSuperview().inset(16)
+            maker.bottom.equalToSuperview().inset(16)
             maker.width.equalTo(136)
             maker.height.equalTo(116)
-            maker.bottom.equalToSuperview().inset(10)
-        }
-         
-        insertView.snp.makeConstraints { maker in
-            maker.left.right.bottom.equalToSuperview()
-            maker.height.equalTo(10)
-        }
-      
-        mainView.snp.makeConstraints { maker in
-            maker.left.right.top.equalToSuperview().inset(15)
-            maker.bottom.equalTo(insertView.snp.top).inset(-5)
-        }
-        
-        typeAd.snp.makeConstraints { maker in
-            maker.height.width.equalTo(35)
-        }
-        
-        typeAdStack.snp.makeConstraints { maker in
-            maker.top.equalToSuperview().inset(25)
-            maker.right.equalToSuperview().inset(15)
         }
         
         petSignsLabelStack.snp.makeConstraints { maker in
             maker.top.equalTo(dateCreation.snp.bottom).inset(-12)
             maker.left.equalTo(imagePet.snp.right).inset(-16)
-            maker.right.equalToSuperview().inset(46)
+            maker.right.equalToSuperview().inset(15)
         }
         
         currentPossitionAd.snp.makeConstraints { maker in
-            maker.top.equalTo(petSignsLabelStack.snp.bottom).inset(-18)
+            maker.top.equalTo(petSignsLabelStack.snp.bottom).inset(-10)
             maker.left.equalTo(imagePet.snp.right).inset(-16)
             maker.bottom.equalToSuperview().inset(16)
         }
@@ -228,28 +239,19 @@ class AdsTableViewCell: UITableViewCell {
         favorites.snp.makeConstraints { maker in
             maker.top.equalTo(petSignsLabelStack.snp.bottom).inset(-10)
             maker.right.equalToSuperview().inset(15)
-            maker.height.width.equalTo(48)
+            maker.bottom.equalToSuperview().inset(17)
+            maker.height.width.equalTo(24)
         }
-        
     }
     
     @objc private func favoritesButtonTapped(sender: UIButton) {
-        if sender.currentTitleColor != UIColor(hex: 0xFF9900, alpha: 1) {
-            sender.setTitleColor(UIColor(hex: 0xFF9900, alpha: 1), for: .normal)
-            if let image = sender.imageView?.image {
-                let tintedImage = image.withTintColor(UIColor(hex: 0xFF9900, alpha: 1), renderingMode: .alwaysOriginal)
-                sender.setImage(tintedImage, for: .normal)
-            }
+        if let image = sender.imageView?.image, image == UIImage(named: "star") {
+            let tintedImage = image.withTintColor(UIColor(hex: 0xFF9900, alpha: 1), renderingMode: .alwaysOriginal)
+            sender.setImage(tintedImage, for: .normal)
         } else {
-            sender.setTitleColor(UIColor(hex: 0xFFFFFF, alpha: 1), for: .normal)
-            if let image = sender.imageView?.image {
-                let tintedImage = image.withTintColor(UIColor(hex: 0xFFFFFF, alpha: 1), renderingMode: .alwaysOriginal)
-                sender.setImage(tintedImage, for: .normal)
-            }
+            sender.setImage(UIImage(named: "star"), for: .normal)
         }
     }
-
-
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

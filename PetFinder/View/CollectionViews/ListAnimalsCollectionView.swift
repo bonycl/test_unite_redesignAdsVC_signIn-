@@ -10,7 +10,7 @@ import SnapKit
 
 class ListAnimalsCollectionView: UICollectionView {
     
-    private let massivePet = ["Сортировка", "Собаки", "Кошки", "Птицы", "Грызуны", "Экзотические"]
+    private let massivePet = ["Настройки", "Собаки", "Кошки", "Птицы", "Грызуны", "Другие"]
     private let imageMassive = ["sortImage", "dog", "cat", "bird", "mouse", "others"]
     
     private var selectedCell = [IndexPath]()
@@ -38,6 +38,10 @@ class ListAnimalsCollectionView: UICollectionView {
         layout.scrollDirection = .horizontal
         self.showsVerticalScrollIndicator = false
         self.showsHorizontalScrollIndicator = false
+        layout.minimumInteritemSpacing = 24 // отступы между ячейками по горизонтали
+        layout.minimumLineSpacing = 24 // отступы между ячейками по вертикали
+        self.collectionViewLayout = layout
+
 
         self.collectionViewLayout = layout
         self.backgroundColor = .clear
@@ -87,15 +91,23 @@ extension ListAnimalsCollectionView: UICollectionViewDataSource {
         cell.backgroundColor = .systemBlue
         selectedCell.removeAll()
         selectedCell.append(indexPath)
-        
     }
 }
 
 
 extension ListAnimalsCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 82, height: 76)
+        return CGSize(width: 67, height: 78)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        if section == 0 {
+            return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        } else {
+            return UIEdgeInsets.zero
+        }
+    }
+
 
 }
 
